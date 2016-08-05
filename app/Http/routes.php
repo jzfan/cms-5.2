@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::resource('article', 'ArticleController', ['except' => 'show']);
+	Route::resource('user', 'UserController', ['except' => ['show', 'create']]);
+	Route::resource('role', 'RoleController', ['except' => 'show']);
 });

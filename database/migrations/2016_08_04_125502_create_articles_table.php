@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('summary');
+            $table->string('page_img');
             $table->string('content');
             $table->string('source');
             $table->string('provider');

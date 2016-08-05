@@ -30,6 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  @yield('css')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -256,8 +257,9 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>文章</span></a></li>
-        <li><a href="#"><i class="fa fa-user"></i> <span>用户</span></a></li>
+        <li @if(Request::is('admin/article*')) class="active" @endif><a href="/admin/article"><i class="fa fa-file"></i> <span>文章</span></a></li>
+        <li @if(Request::is('admin/user*')) class="active" @endif><a href="/admin/user"><i class="fa fa-user"></i> <span>用户</span></a></li>
+        <li @if(Request::is('admin/role*')) class="active" @endif><a href="/admin/role"><i class="fa fa-briefcase"></i> <span>管理员</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -401,5 +403,6 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+@yield('js')
 </body>
 </html>
