@@ -29,6 +29,7 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
         'summary' => $faker->sentence,
         'content' => $faker->text,
         'source' => $faker->safeEmailDomain,
+        'page_img' => mt_rand(1, 3) . '.jpg',
         'provider' => $faker->name,
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now()
@@ -44,8 +45,10 @@ $factory->define(App\Slider::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
+    $icons = [ 'fa-group', 'fa-email', 'fa-database', 'fa-flag', 'fa-flask', 'fa-glass', 'fa-leaf', 'fa-eye', 'fa-cube', 'fa-road' ];
     return [
         'name' => $faker->word,
+        'icon' => $icons[array_rand($icons, 1)],
         'description' => $faker->sentence,
     ];
 });

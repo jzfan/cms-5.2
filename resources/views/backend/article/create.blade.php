@@ -67,13 +67,5 @@
 @stop
 
 @section('js')
-<script src="//cdn.bootcss.com/summernote/0.7.1/summernote.min.js"></script>
-<script src="//cdn.bootcss.com/summernote/0.8.1/lang/summernote-zh-CN.min.js"></script>
-<script type="text/javascript">
-
-  $('#summernote').summernote({
-  	minHeight: 300,
-  	lang: 'zh-CN'
-  });
-</script>
+  @include('backend.article.summernote')
 @stop

@@ -1,9 +1,5 @@
 @extends('backend.layout')
 
-@section('css')
-<link href="/css/iCheck/flat/_all.css" rel="stylesheet">
-@stop
-
 @section('content')
 <div class="row">
 	<div class="col-xs-12">

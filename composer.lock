@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c284a9c122da36c99a8b6597bdce7aa6",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "0b85bc4193804387b4fd0c1cc20cf19c",
+    "content-hash": "dc9e2f875ab09ce35cfab8df4953e4fe",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -17,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/ClassPreloader/ClassPreloader/9b10b913c2bdf90c3d2e0d726b454fb7f77c552a.zip",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
                 "reference": "9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
                 "shasum": ""
             },
@@ -71,7 +71,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/dnoegel/php-xdg-base-dir/265b8593498b997dc2d31e75b89f053b5cc9621a.zip",
+                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/265b8593498b997dc2d31e75b89f053b5cc9621a",
                 "reference": "265b8593498b997dc2d31e75b89f053b5cc9621a",
                 "shasum": ""
             },
@@ -104,7 +104,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
                 "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
@@ -162,6 +162,126 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "guzzlehttp/psr7",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-06-24 23:00:38"
+        },
+        {
+            "name": "intervention/image",
+            "version": "2.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2016-04-26 14:08:40"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -171,7 +291,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/JakubOnderka/PHP-Console-Color/e0b393dacf7703fc36a4efc3df1435485197e6c1.zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Color/zipball/e0b393dacf7703fc36a4efc3df1435485197e6c1",
                 "reference": "e0b393dacf7703fc36a4efc3df1435485197e6c1",
                 "shasum": ""
             },
@@ -214,7 +334,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/JakubOnderka/PHP-Console-Highlighter/7daa75df45242c8d5b75a22c00a201e7954e4fb5.zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Highlighter/zipball/7daa75df45242c8d5b75a22c00a201e7954e4fb5",
                 "reference": "7daa75df45242c8d5b75a22c00a201e7954e4fb5",
                 "shasum": ""
             },
@@ -258,7 +378,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/jeremeamia/super_closure/29a88be2a4846d27c1613aed0c9071dfad7b5938.zip",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/29a88be2a4846d27c1613aed0c9071dfad7b5938",
                 "reference": "29a88be2a4846d27c1613aed0c9071dfad7b5938",
                 "shasum": ""
             },
@@ -316,7 +436,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2.zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
                 "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
                 "shasum": ""
             },
@@ -446,7 +566,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/thephpleague/flysystem/fb3b30dca320b36931ea878fea17ebe136fba1b0.zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/fb3b30dca320b36931ea878fea17ebe136fba1b0",
                 "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0",
                 "shasum": ""
             },
@@ -529,7 +649,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Seldaek/monolog/f42fbdfd53e306bda545845e4dbfd3e72edb4952.zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
                 "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
                 "shasum": ""
             },
@@ -607,7 +727,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/mtdowling/cron-expression/c9ee7886f5a12902b225a1a12f36bb45f9ab89e5.zip",
+                "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
                 "reference": "c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
                 "shasum": ""
             },
@@ -651,7 +771,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/briannesbitt/Carbon/7b08ec6f75791e130012f206e3f7b0e76e18e3d7.zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
                 "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
                 "shasum": ""
             },
@@ -698,7 +818,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/47b254ea51f1d6d5dc04b9b299e88346bf2369e3.zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
                 "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
                 "shasum": ""
             },
@@ -749,7 +869,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/c7e26a21ba357863de030f0b9e701c7d04593774.zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
                 "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
                 "shasum": ""
             },
@@ -788,6 +908,55 @@
             "time": "2016-03-18 20:34:03"
         },
         {
+            "name": "psr/http-message",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2015-05-04 20:22:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -797,7 +966,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/php-fig/log/fe0936ee26643249e916849d48e3a51d5f5e278b.zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
@@ -835,7 +1004,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/bobthecow/psysh/e64e10b20f8d229cac76399e1f3edddb57a0f280.zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e64e10b20f8d229cac76399e1f3edddb57a0f280",
                 "reference": "e64e10b20f8d229cac76399e1f3edddb57a0f280",
                 "shasum": ""
             },
@@ -907,7 +1076,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/swiftmailer/swiftmailer/4cc92842069c2bbc1f28daaaf1d2576ec4dfe153.zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/4cc92842069c2bbc1f28daaaf1d2576ec4dfe153",
                 "reference": "4cc92842069c2bbc1f28daaaf1d2576ec4dfe153",
                 "shasum": ""
             },
@@ -960,7 +1129,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/console/926061e74229e935d3c5b4e9ba87237316c6693f.zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/926061e74229e935d3c5b4e9ba87237316c6693f",
                 "reference": "926061e74229e935d3c5b4e9ba87237316c6693f",
                 "shasum": ""
             },
@@ -1020,7 +1189,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/debug/697c527acd9ea1b2d3efac34d9806bf255278b0a.zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/697c527acd9ea1b2d3efac34d9806bf255278b0a",
                 "reference": "697c527acd9ea1b2d3efac34d9806bf255278b0a",
                 "shasum": ""
             },
@@ -1077,7 +1246,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/event-dispatcher/c0c00c80b3a69132c4e55c3e7db32b4a387615e5.zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/c0c00c80b3a69132c4e55c3e7db32b4a387615e5",
                 "reference": "c0c00c80b3a69132c4e55c3e7db32b4a387615e5",
                 "shasum": ""
             },
@@ -1137,7 +1306,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/finder/3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9.zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9",
                 "reference": "3eb4e64c6145ef8b92adefb618a74ebdde9e3fe9",
                 "shasum": ""
             },
@@ -1186,7 +1355,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/http-foundation/49ba00f8ede742169cb6b70abe33243f4d673f82.zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "shasum": ""
             },
@@ -1239,7 +1408,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/http-kernel/d97ba4425e36e79c794e7d14ff36f00f081b37b3.zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d97ba4425e36e79c794e7d14ff36f00f081b37b3",
                 "reference": "d97ba4425e36e79c794e7d14ff36f00f081b37b3",
                 "shasum": ""
             },
@@ -1321,7 +1490,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/polyfill-mbstring/dff51f72b0706335131b00a7f49606168c582594.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
                 "reference": "dff51f72b0706335131b00a7f49606168c582594",
                 "shasum": ""
             },
@@ -1380,7 +1549,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/polyfill-php56/3edf57a8fbf9a927533344cef65ad7e1cf31030a.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/3edf57a8fbf9a927533344cef65ad7e1cf31030a",
                 "reference": "3edf57a8fbf9a927533344cef65ad7e1cf31030a",
                 "shasum": ""
             },
@@ -1436,7 +1605,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/polyfill-util/ef830ce3d218e622b221d6bfad42c751d974bf99.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/ef830ce3d218e622b221d6bfad42c751d974bf99",
                 "reference": "ef830ce3d218e622b221d6bfad42c751d974bf99",
                 "shasum": ""
             },
@@ -1488,7 +1657,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/process/768debc5996f599c4372b322d9061dba2a4bf505.zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/768debc5996f599c4372b322d9061dba2a4bf505",
                 "reference": "768debc5996f599c4372b322d9061dba2a4bf505",
                 "shasum": ""
             },
@@ -1537,7 +1706,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/routing/9038984bd9c05ab07280121e9e10f61a7231457b.zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/9038984bd9c05ab07280121e9e10f61a7231457b",
                 "reference": "9038984bd9c05ab07280121e9e10f61a7231457b",
                 "shasum": ""
             },
@@ -1612,7 +1781,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/translation/eee6c664853fd0576f21ae25725cfffeafe83f26.zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/eee6c664853fd0576f21ae25725cfffeafe83f26",
                 "reference": "eee6c664853fd0576f21ae25725cfffeafe83f26",
                 "shasum": ""
             },
@@ -1676,7 +1845,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/var-dumper/1f7e071aafc6676fcb6e3f0497f87c2397247377.zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1f7e071aafc6676fcb6e3f0497f87c2397247377",
                 "reference": "1f7e071aafc6676fcb6e3f0497f87c2397247377",
                 "shasum": ""
             },
@@ -1739,7 +1908,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/vlucas/phpdotenv/9ca5644c536654e9509b9d257f53c58630eb2a6a.zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9ca5644c536654e9509b9d257f53c58630eb2a6a",
                 "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a",
                 "shasum": ""
             },

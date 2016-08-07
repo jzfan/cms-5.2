@@ -258,8 +258,9 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li @if(Request::is('admin/article*')) class="active" @endif><a href="/admin/article"><i class="fa fa-file"></i> <span>文章</span></a></li>
+        <li @if(Request::is('admin/category*')) class="active" @endif><a href="/admin/category"><i class="fa fa-tags"></i> <span>分类</span></a></li>
         <li @if(Request::is('admin/user*')) class="active" @endif><a href="/admin/user"><i class="fa fa-user"></i> <span>用户</span></a></li>
-        <li @if(Request::is('admin/role*')) class="active" @endif><a href="/admin/role"><i class="fa fa-briefcase"></i> <span>管理员</span></a></li>
+        <li @if(Request::is('admin/role*')) class="active" @endif><a href="/admin/role"><i class="fa fa-user-secret"></i> <span>管理员</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -281,14 +282,7 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+    @yield('content-header')
     </section>
 
     <!-- Main content -->

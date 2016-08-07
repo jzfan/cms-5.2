@@ -6,53 +6,26 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Admin;
+use App\User;
 
 class RoleController extends Controller
 {
     public function index()
     {
-    	$admins = Admin::with('user')->get();
-dd($admins->first()->profile());
-    	return view('backend.role.index', compact('roles'));
-    }
-
-    public function create()
-    {
-    	$categories = Category::all();
-    	return view('backend.role.create', compact('categories'));
+    	$admins = Admin::with('user')->orderBy('id', 'asc')->get();
+    	return view('backend.role.index', compact('admins'));
     }
 
     public function store(Request $request)
     {
-    	// dd($request->input());
-    	Admin::create( $request->input() + ['page_img' => $this->pageImgHandle($request)])
-    			->categories()->sync([$request->input('category')]);
+        $user = User::whereIdOrEmail($request->input('id'), $request->input('email'))->first();
+    	Admin::create(['user_id' => $user->id]);
     	return redirect('/admin/role');
     }
 
-    public function edit(Admin $role)
+    public function destroy(Admin $admin)
     {
-    	$categories = Category::all();
-    	return view('backend.role.edit', compact('role', 'categories'));
-    }
-
-    public function update(Admin $role, Request $request)
-    {
-    	$role->update($request->input());
-    	return redirect('/admin/role');
-    }
-
-    public function destroy(Admin $role)
-    {
-    	$role->delete();
+    	$admin->delete();
     	return back();
-    }
-
-    private function pageImgHandle(Request $request)
-    {
-    	$page_img = $request->file('page_img');
-    	$name = $page_img->getClientOriginalName();
-    	$page_img->move(public_path() . '/img/page_img', $name);
-    	return $name;
     }
 }

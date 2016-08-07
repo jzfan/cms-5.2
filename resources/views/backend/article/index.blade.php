@@ -1,19 +1,15 @@
 @extends('backend.layout')
 
+@section('content-header')
+	@include('backend.content-header', ['title' => '文章', 'add_link'=>'/admin/article/create'])
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-xs-12">
 		<div class="box">
-
-			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">文章列表</h3>
-					&nbsp;&nbsp;&nbsp;
-					<a href='/admin/article/create'> <i class="fa fa-plus"></i>
-						<span>新增</span>
-					</a>
-
-<!-- 					<div class="box-tools">
+					<div class="box-tools">
 						<div class="input-group">
 							<input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">
 							<div class="input-group-btn">
@@ -21,7 +17,7 @@
 								</button>
 							</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body table-responsive">
@@ -35,32 +31,34 @@
 								<th class="sorting">归类</th>
 								<th class="sorting">来源</th>
 								<th class="sorting">提供者</th>
-								<th class="sorting">操作</th>
+								<th class="sorting" colspan="2">操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($articles as $a)
 							<tr role="row" class="article-tr">
 								<td class="sorting_1">{{ $a->id }}</td>
-								<td>{{ $a->title }}</td>
+								<td><a href='/article/{{ $a->id }}' target="_blank"> {{ $a->title }}</a></td>
 								<td>{{ $a->summary }}</td>
 								<td><img src='/img/page_img/{{ $a->page_img }}' width=100></td>
 								<td>{{ join(', ', $a->categories->lists('name')->toArray()) }}</td>
 								<td>{{ $a->source }}</td>
 								<td>{{ $a->provider }}</td>
 								<td>
-									<a href="/admin/article/{{ $a->id }}/edit">
+									<a href="/admin/article/{{ $a->id }}/edit" class='btn btn-link'>
 										<i class="fa fa-edit"></i>
-										<span>修改</span>
 									</a>
+									</td>
+									<td>
+										
 									<form action='/admin/article/{{ $a->id }}' method="post">
 										<input type="hidden" name="_method" value="delete"/>
 										{!! csrf_field() !!}
-										<button type='submit' onclick='return confirm("真的要删除吗？")'>
-											<i class="fa fa-trash"></i>
-											<span>删除</span>
+										<button type='submit' class='btn btn-link' onclick='return confirm("真的要删除吗？")'>
+											<i class="fa fa-trash text-danger"></i>
 										</button>
 									</form>
+									</td>
 								</td>
 							</tr>
 							@endforeach

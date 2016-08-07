@@ -50,11 +50,11 @@
 
                     <div class="form-group">
                       <label for="source">来源</label>
-                      <input type="text" class="form-control" id="source" name='source' placeholder="输入来源...">
+                      <input type="text" class="form-control" id="source" name='source' placeholder="输入来源..." value="{{ old('source', $article->source) }}">
                     </div>
                     <div class="form-group">
                       <label for="provider">提供者</label>
-                      <input type="text" class="form-control" id="provider" name='provider' placeholder="输入提供者...">
+                      <input type="text" class="form-control" id="provider" name='provider' placeholder="输入提供者..." value="{{ old('provider', $article->provider) }}" >
                     </div>
 
 
@@ -72,14 +72,5 @@
 @stop
 
 @section('js')
-<script src="//cdn.bootcss.com/summernote/0.7.1/summernote.min.js"></script>
-<script src="//cdn.bootcss.com/summernote/0.8.1/lang/summernote-zh-CN.min.js"></script>
-<script type="text/javascript">
-
-  $('#summernote').summernote({
-  	minHeight: 300,
-  	lang: 'zh-CN'
-  });
-
-</script>
+  @include('backend.article.summernote')
 @stop
