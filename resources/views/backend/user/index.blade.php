@@ -44,12 +44,12 @@
 								<td>{{ $u->gender }}</td>
 								<td>{{ $u->phone }}</td>
 								<td>
-									<a href="/admin/user/{{ $u->id }}/edit" class='btn btn-link'>
+									<a href="/backend/user/{{ $u->id }}/edit" class='btn btn-link'>
 										<i class="fa fa-edit"></i>
 									</a>
 									</td>
 									<td>
-									<form action='/admin/user/{{ $u->id }}' method="post">
+									<form action='/backend/user/{{ $u->id }}' method="post">
 										<input type="hidden" name="_method" value="delete"/>
 										{!! csrf_field() !!}
 										<button type='submit' class='btn btn-link' onclick='return confirm("真的要删除吗？")'>
@@ -66,8 +66,6 @@
 			</div>
 
 		</div>
-	</div>
-	<!-- /.box-body -->
 </div>
 
 @stop

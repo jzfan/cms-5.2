@@ -14,7 +14,7 @@
                   <h3 class="box-title">新增文章</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action='/admin/article' method="post" enctype ="multipart/form-data">
+                <form role="form" action='/backend/article' method="post" enctype ="multipart/form-data">
                 	{!! csrf_field() !!}
                   <div class="box-body">
                     <div class="form-group">

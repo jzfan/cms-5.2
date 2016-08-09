@@ -27,10 +27,11 @@
                   <b>电话</b> <a class="pull-right">{{ $admin->user->phone }}</a>
                 </li>
               </ul>
-<form action='/admin/role/{{ $admin->id }}' method="post">
+<form action='/backend/admin/{{ $admin->id }}' method="post">
 <input type="hidden" name="_method" value='delete'>
 {!! csrf_field() !!}
-              <button type='submit' class="btn btn-primary btn-block" @if($admin->id === 1) disabled @endif>             	
+              <button type='submit' class="btn btn-primary btn-block" @if($admin->id === 1) disabled @endif onclick='return confirm("真的要删除吗？")'>
+              <i class="fa fa-trash"></i>        	
               	<b>取消权限</b>
               </button>
 </form>
@@ -55,7 +56,7 @@
                 请输入用户的 email 或者 ID . 
               </div>
 
-        <form id='form-add' action='/admin/role' method="post" class="form-horizontal">
+        <form id='form-add' action='/backend/admin' method="post" class="form-horizontal">
         {!! csrf_field() !!}
                 <div class="form-group">
                   <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
@@ -75,7 +76,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" id='submit-btn' class="btn btn-warning">提交</button>
+        <button type="button" id='submit-btn' class="btn btn-danger">提交</button>
       </div>
     </div>
   </div>

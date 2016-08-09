@@ -19,7 +19,11 @@ return array(
 
     'article' => [
         'width'  => 500,
-        'height' => 'auto'
+    ],
+
+    'slider' => [
+        'width' => 640,
+        'height' => 360
     ]
 
 );

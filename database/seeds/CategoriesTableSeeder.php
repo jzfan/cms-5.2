@@ -14,6 +14,6 @@ class CategoriesTableSeeder extends Seeder
     {
     	Category::truncate();
     	
-        factory(Category::class, 15)->create();
+        factory(Category::class, 10)->create();
     }
 }

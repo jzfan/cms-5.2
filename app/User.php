@@ -24,4 +24,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
+
+    public function isAdmin()
+    {
+        return !is_null( $this->admin );
+    }   
+
 }

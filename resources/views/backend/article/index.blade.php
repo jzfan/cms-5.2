@@ -1,7 +1,7 @@
 @extends('backend.layout')
 
 @section('content-header')
-	@include('backend.content-header', ['title' => '文章', 'add_link'=>'/admin/article/create'])
+	@include('backend.content-header', ['title' => '文章', 'add_link'=>'/backend/article/create'])
 @stop
 
 @section('content')
@@ -45,13 +45,13 @@
 								<td>{{ $a->source }}</td>
 								<td>{{ $a->provider }}</td>
 								<td>
-									<a href="/admin/article/{{ $a->id }}/edit" class='btn btn-link'>
+									<a href="/backend/article/{{ $a->id }}/edit" class='btn btn-link'>
 										<i class="fa fa-edit"></i>
 									</a>
 									</td>
 									<td>
 										
-									<form action='/admin/article/{{ $a->id }}' method="post">
+									<form action='/backend/article/{{ $a->id }}' method="post">
 										<input type="hidden" name="_method" value="delete"/>
 										{!! csrf_field() !!}
 										<button type='submit' class='btn btn-link' onclick='return confirm("真的要删除吗？")'>
@@ -59,14 +59,14 @@
 										</button>
 									</form>
 									</td>
-								</td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
 					{!! $articles->links() !!}
 				</div>
-			</div>
+
+
 
 		</div>
 	</div>

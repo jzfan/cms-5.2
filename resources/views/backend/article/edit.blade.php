@@ -14,7 +14,7 @@
                   <h3 class="box-title">编辑文章</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action='/admin/article/{{ $article->id }}' method="post" enctype ="multipart/form-data">
+                <form role="form" action='/backend/article/{{ $article->id }}' method="post" enctype ="multipart/form-data">
                   <input type="hidden" name="_method" value='put'>
                 	{!! csrf_field() !!}
                   <div class="box-body">
@@ -31,7 +31,7 @@
                       <input type="file" id="page_img" name='page_img'>
                       <p class="help-block">{{ $article->page_img }}</p>
                     </div>
-                  </div>
+                  
                     <div class="form-group">
 <textarea id="summernote" name='content'>{{ old('content', $article->content) }}</textarea>
                     </div>
@@ -57,7 +57,7 @@
                       <input type="text" class="form-control" id="provider" name='provider' placeholder="输入提供者..." value="{{ old('provider', $article->provider) }}" >
                     </div>
 
-
+</div>
                   <!-- /.box-body -->
 
                   <div class="box-footer">

@@ -11,7 +11,7 @@
                   <h3 class="box-title">编辑用户</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action='/admin/user/{{ $user->id }}' method="post" enctype ="multipart/form-data">
+                <form role="form" action='/backend/user/{{ $user->id }}' method="post" enctype ="multipart/form-data">
                   <input type="hidden" name="_method" value='put'>
                 	{!! csrf_field() !!}
                   <div class="box-body">
@@ -27,9 +27,9 @@
 
                     <div class="form-group">
                     <label for="gender">性别</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="radio" name="gender" value="保密" class="flat-red" @if($user->gender === '保密') checked @endif/> 保密
-                      <input type="radio" name="gender" value="男" class="flat-red" @if($user->gender === '男') checked @endif/> 男
-                      <input type="radio" name="gender" value="女" class="flat-red" @if($user->gender === '女') checked @endif/> 女
+                      <input type="radio" name="gender" value="保密" class="flat-red" @if( $user->gender === '保密' ) checked @endif/> 保密
+                      <input type="radio" name="gender" value="男" class="flat-red" @if( $user->gender === '男' ) checked @endif/> 男
+                      <input type="radio" name="gender" value="女" class="flat-red" @if( $user->gender === '女' ) checked @endif/> 女
                     </div>
                   </div>
                     <div class="form-group">

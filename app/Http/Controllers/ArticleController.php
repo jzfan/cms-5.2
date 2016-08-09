@@ -32,7 +32,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
     	Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
-    	return redirect('/admin/article');
+    	return redirect('/backend/article');
     }
 
     public function edit(Article $article)
@@ -44,7 +44,7 @@ class ArticleController extends Controller
     public function update(Article $article, Request $request)
     {
         $article->update($request->input());
-        return redirect('/admin/article');
+        return redirect('/backend/article');
     }
 
     public function destroy(Article $article)
@@ -67,7 +67,15 @@ class ArticleController extends Controller
         $img = $request->file('image');
         $name = $img->getClientOriginalName();
         $imgPath = '/img/upload/';
-        $img = Image::make($img)->resize(config('image.article.width'), config('image.article.height'))->save(public_path(). $imgPath. $name);
+        $img = Image::make($img)->resize(config('image.article.width'), null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path(). $imgPath. $name);
         echo env("APP_URL") . $imgPath . $name;       
+    }
+
+    public function getJson()
+    {
+        $articles = Article::orderBy('id', 'desc')->paginate(10);
+        return response()->json($articles);
     }
 }

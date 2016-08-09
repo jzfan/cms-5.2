@@ -14,7 +14,7 @@ $.ajaxSetup({
         $.ajax({
             data: data,
             type: "POST",
-            url: "/admin/article/uploadImage",
+            url: "/backend/article/uploadImage",
             cache: false,
             contentType: false,
             processData: false,

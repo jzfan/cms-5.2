@@ -45,7 +45,7 @@ $factory->define(App\Slider::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
-    $icons = [ 'fa-group', 'fa-email', 'fa-database', 'fa-flag', 'fa-flask', 'fa-glass', 'fa-leaf', 'fa-eye', 'fa-cube', 'fa-road' ];
+    $icons = [ 'fa-group', 'fa-fire', 'fa-database', 'fa-flag', 'fa-flask', 'fa-glass', 'fa-leaf', 'fa-eye', 'fa-cube', 'fa-road' ];
     return [
         'name' => $faker->word,
         'icon' => $icons[array_rand($icons, 1)],

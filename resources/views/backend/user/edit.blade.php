@@ -15,7 +15,7 @@
                   <h3 class="box-title">编辑用户</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action='/admin/user/{{ $user->id }}' method="post" enctype ="multipart/form-data">
+                <form role="form" action='/backend/user/{{ $user->id }}' method="post" enctype ="multipart/form-data">
                   <input type="hidden" name="_method" value='put'>
                 	{!! csrf_field() !!}
                   <div class="box-body">

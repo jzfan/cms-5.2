@@ -20,7 +20,7 @@ class UserController extends Controller
     	// dd($request->input());
     	user::create( $request->input() + ['page_img' => $this->pageImgHandle($request)])
     			->categories()->sync([$request->input('category')]);
-    	return redirect('/admin/user');
+    	return redirect('/backend/user');
     }
 
     public function edit(user $user)
@@ -31,11 +31,12 @@ class UserController extends Controller
     public function update(user $user, Request $request)
     {
     	$user->update($request->input());
-    	return redirect('/admin/user');
+    	return redirect('/backend/user');
     }
 
     public function destroy(user $user)
     {
+        // dd($user);
     	$user->delete();
     	return back();
     }
