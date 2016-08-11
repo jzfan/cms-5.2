@@ -42,13 +42,20 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        $articles = Article::where('categories')
-        dd($articles);
+        $articles = $this->getArticlePageByCategory($category);
+        return view('frontend.category', compact('articles'));
     }
 
     public function getJson(Category $category)
     {
-        $categories = Category::with('articles')->paginate(config('cms.per_page'));
-        return response()->json($categories);
+        $articles = $this->getArticlePageByCategory($category);
+        return response()->json($articles);
+    }
+
+    private function getArticlePageByCategory($category)
+    {
+        return Article::whereHas('categories', function ($q) use ($category) {
+            $q->where('id', $category->id);
+        })->paginate(config('cms.per_page'));
     }
 }
