@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\CreateArticle;
+use App\Http\Requests\UpdateArticle;
 use App\Article;
 use App\Category;
 use Image;
+use Alert;
 
 class ArticleController extends Controller
 {
@@ -29,9 +31,10 @@ class ArticleController extends Controller
     	return view('backend.article.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(CreateArticle $request)
     {
     	Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
+        alert()->success('创建成功！');
     	return redirect('/backend/article');
     }
 
@@ -41,19 +44,22 @@ class ArticleController extends Controller
     	return view('backend.article.edit', compact('article', 'categories'));
     }
 
-    public function update(Article $article, Request $request)
+    public function update(Article $article, UpdateArticle $request)
     {
         $article->update($request->input());
+        $article->categories()->sync([$request->input('category')]);
+        alert()->success('更新成功！');
         return redirect('/backend/article');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
+        alert()->success('删除成功！');
         return back();
     }
 
-    private function pageImageHandle(Request $request)
+    private function pageImageHandle($request)
     {
         $page_img = $request->file('page_img');
         $name = $page_img->getClientOriginalName();

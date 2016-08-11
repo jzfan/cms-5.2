@@ -26,7 +26,7 @@
     <form action='/backend/slider/{{ $slider->id }}' method="post">
       <input type="hidden" name="_method" value="delete"/>
       {!! csrf_field() !!}
-      <button type='submit' class='btn btn-link pull-right' onclick='return confirm("真的要删除吗？")'>
+      <button type='submit' class='btn btn-link pull-right delete-link'>
         <i class="fa fa-trash text-danger"></i>
       </button>
     </form>
@@ -44,4 +44,10 @@
   @empty
 @endforelse
 </div>       
+@stop
+
+@section('js')
+@include('common.sweetalert.error')
+@include('common.sweetalert.session')
+@include('common.sweetalert.confirmDelete')
 @stop

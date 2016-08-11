@@ -19,11 +19,11 @@
                   <div class="box-body">
                     <div class="form-group">
                       <label for="title">标题</label>
-                      <input type="text" class="form-control" id="title" name='title' placeholder="输入标题...">
+                      <input type="text" class="form-control" id="title" name='title' placeholder="输入标题..." value="{{ old('title', '') }}">
                     </div>
                     <div class="form-group">
                       <label for="summary">概要</label>
-                      <input type="text" class="form-control" id="summary" name='summary' placeholder="输入概要...">
+                      <input type="text" class="form-control" id="summary" name='summary' placeholder="输入概要..." value="{{ old('summary', '') }}">
                     </div>
                     <div class="form-group">
                       <label for="page_img">页头图片</label>
@@ -45,11 +45,11 @@
 
                     <div class="form-group">
                       <label for="source">来源</label>
-                      <input type="text" class="form-control" id="source" name='source' placeholder="输入来源...">
+                      <input type="text" class="form-control" id="source" name='source' placeholder="输入来源..." value="{{ old('source', '') }}">
                     </div>
                     <div class="form-group">
                       <label for="provider">提供者</label>
-                      <input type="text" class="form-control" id="provider" name='provider' placeholder="输入提供者...">
+                      <input type="text" class="form-control" id="provider" name='provider' placeholder="输入提供者..." value="{{ old('provider', '') }}">
                     </div>
 
 
@@ -68,4 +68,5 @@
 
 @section('js')
   @include('backend.article.summernote')
+  @include('common.sweetalert.error')
 @stop

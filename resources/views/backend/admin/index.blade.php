@@ -30,7 +30,7 @@
 <form action='/backend/admin/{{ $admin->id }}' method="post">
 <input type="hidden" name="_method" value='delete'>
 {!! csrf_field() !!}
-              <button type='submit' class="btn btn-primary btn-block" @if($admin->id === 1) disabled @endif onclick='return confirm("真的要删除吗？")'>
+              <button type='submit' class="btn btn-primary btn-block delete-link" @if($admin->id === 1) disabled @endif>
               <i class="fa fa-trash"></i>        	
               	<b>取消权限</b>
               </button>
@@ -95,4 +95,7 @@
 		$('#form-add').submit();
 	});
 </script>
+  @include('common.sweetalert.error')
+  @include('common.sweetalert.session')
+  @include('common.sweetalert.confirmDelete')
 @stop

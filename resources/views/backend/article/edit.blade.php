@@ -73,4 +73,5 @@
 
 @section('js')
   @include('backend.article.summernote')
+  @include('common.sweetalert.error')
 @stop

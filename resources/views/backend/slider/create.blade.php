@@ -14,11 +14,11 @@
                   <div class="box-body">
                     <div class="form-group">
                       <label for="title">标题</label>
-                      <input type="text" class="form-control" id="title" name='title' placeholder="输入标题...">
+                      <input type="text" class="form-control" id="title" name='title' placeholder="输入标题..." value='{{ old("title", "") }}'>
                     </div>
                     <div class="form-group">
                       <label for="link">链接</label>
-                      <input type="text" class="form-control" id="link" name='link' placeholder="请输入链接地址...">
+                      <input type="text" class="form-control" id="link" name='link' placeholder="请输入链接地址..." value='{{ old("link", "") }}'>
                     </div>
                     <div class="form-group">
                       <label for="img">图片</label>
@@ -38,4 +38,8 @@
 		</div>
 	</div>
 </div>
+@stop
+
+@section('js')
+@include('common.sweetalert.error')
 @stop

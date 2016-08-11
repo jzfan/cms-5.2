@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\CreateSlider;
+use App\Http\Requests\UpdateSlider;
 use App\Slider;
 use Image;
 use Cache;
@@ -24,16 +25,11 @@ class SliderController extends Controller
     	return view('backend.slider.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateSlider $request)
     {
     	Slider::create( $request->input() + ['img' => $this->uploadImageHandle($request)]);
+        alert()->success('创建成功！');
     	return redirect('/backend/slider');
-    }
-
-    public function destroy(Slider $slider)
-    {
-        $slider->delete();
-        return back();
     }
 
     public function edit(Slider $slider)
@@ -41,7 +37,7 @@ class SliderController extends Controller
         return view('backend.slider.edit', compact('slider'));
     }
 
-    public function update(Slider $slider, Request $request)
+    public function update(Slider $slider, UpdateSlider $request)
     {
         if ($request->hasFile('img')){
             $img = $this->uploadImageHandle($request);
@@ -49,7 +45,15 @@ class SliderController extends Controller
         }else{
             $slider->update( $request->input());
         }
+        alert()->success('更新成功！');
         return redirect('/backend/slider');
+    }
+
+    public function destroy(Slider $slider)
+    {
+        $slider->delete();
+        alert()->success('删除成功！');
+        return back();
     }
 
     public function getJson(){

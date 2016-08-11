@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\UpdateUser;
 use App\User;
 
 class UserController extends Controller
@@ -15,20 +15,12 @@ class UserController extends Controller
     	return view('backend.user.index', compact('users'));
     }
 
-    public function store(Request $request)
-    {
-    	// dd($request->input());
-    	user::create( $request->input() + ['page_img' => $this->pageImgHandle($request)])
-    			->categories()->sync([$request->input('category')]);
-    	return redirect('/backend/user');
-    }
-
     public function edit(user $user)
     {
     	return view('backend.user.edit', compact('user'));
     }
 
-    public function update(user $user, Request $request)
+    public function update(user $user, UpdateUser $request)
     {
     	$user->update($request->input());
     	return redirect('/backend/user');

@@ -26,7 +26,7 @@
                 <form action='/backend/category/{{ $category->id }}' method="post">
                     <input type="hidden" name="_method" value="delete"/>
                     {!! csrf_field() !!}
-                    <button type='submit' class='btn btn-link' onclick='return confirm("真的要删除吗？")'>
+                    <button type='submit' class='btn btn-link delete-link'>
                       <i class="fa fa-trash text-danger"></i>
                     </button>
                 </form>
@@ -153,13 +153,11 @@
     var desc = category.find('#info-desc').text();
     var icon = category.find('.info-box-icon').data('icon');
     var id = category.data('id');
-    console.log(icon);
     form.find('#inputName').val(name);
     form.find('#inputDescription').val(desc);
     form.find('#inputIcon').val(icon);
     var url = form.attr('action').replace(':ID', id);
     form.attr('action', url);
-
     $('#editModal').modal();
   });
   $('#submit-btn2').on('click', function(){
@@ -167,4 +165,8 @@
     $('#form-edit').submit();
   });
 </script>
+@include('common.sweetalert.error')
+@include('common.sweetalert.session')
+@include('common.sweetalert.confirmDelete')
+
 @stop
