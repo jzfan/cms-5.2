@@ -41,6 +41,7 @@
 - 缓存更新事件
 - CSS, JS 合并压缩
 - 图片resize, 缓存
+- category select2
 
 ---
 
