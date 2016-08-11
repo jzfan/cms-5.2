@@ -35,7 +35,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="http://cms.dev">
+                <a class="navbar-brand" href="">
                     Laravel
                 </a>
             </div>
@@ -43,14 +43,15 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="http://cms.dev/home">Home</a></li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/article">文章</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                                            <li><a href="http://cms.dev/login">Login</a></li>
-                        <li><a href="http://cms.dev/register">Register</a></li>
+                                            <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
                                     </ul>
             </div>
         </div>

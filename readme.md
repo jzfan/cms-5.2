@@ -165,3 +165,42 @@
     ]
     }
     ```
+
+### login
+ > 请求地址： /api/login
+
+ > 请求方法: post
+
+ > 请求参数:
+
+ | 参数 | 说明 |
+ | --- | ---|
+ | email | 邮箱 |
+ | password | 密码 |
+
+ > 返回：token
+
+ ```
+ {"token":"eyJ0eXAiOiJKV1..."}
+ ```
+
+### user
+ > 请求地址： /api/user/?token={yourtokenhere}
+
+ > 请求方法: get
+
+ > 返回：用户对象
+ ```
+{
+    "user": {
+        "id": 1, 
+        "name": "admin", 
+        "gender": "保密", 
+        "email": "admin@admin.com", 
+        "phone": "88888888", 
+        "avatar": "default.png", 
+        "created_at": "2016-08-11 11:06:04", 
+        "updated_at": "2016-08-11 16:27:16"
+    }
+}
+ ```

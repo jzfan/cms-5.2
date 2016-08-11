@@ -46,10 +46,15 @@ class CategoryController extends Controller
         return view('frontend.category', compact('articles'));
     }
 
-    public function getJson(Category $category)
+    public function getArticlesByCategoryJson(Category $category)
     {
         $articles = $this->getArticlePageByCategory($category);
         return response()->json($articles);
+    }
+
+    public function getAllJson()
+    {
+        return response()->json(Category::all());
     }
 
     private function getArticlePageByCategory($category)

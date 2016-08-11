@@ -39,7 +39,10 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 
 	Route::get('/slider', 'SliderController@getJson');
 	Route::get('/article', 'ArticleController@getJson');
-	Route::get('/category/{category}', 'CategoryController@getJson');
+	Route::get('/category/{category}', 'CategoryController@getArticlesByCategoryJson');
+	Route::get('/category', 'CategoryController@getAllJson');
+	Route::post('/token', 'Auth\\JwtController@authenticate');
+	Route::get('/user', 'Auth\\JwtController@getAuthenticatedUser');
 });
 
 Route::get('/category/{category}', 'CategoryController@show');

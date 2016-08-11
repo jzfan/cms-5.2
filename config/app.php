@@ -158,6 +158,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
 
     ],
 
@@ -205,7 +206,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
 
     ],
 
