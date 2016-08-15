@@ -35,8 +35,8 @@
 
 ## Admin login details
 - Url: sites-public-url/backend
-- admin : admin@admin.com - 123
-- 
+- admin: admin@admin.com - 123
+
 ## ToDo
 - 缓存更新事件
 - CSS, JS 合并压缩
@@ -60,9 +60,10 @@
 | from | 从第几个 |created_at | 创建时间 |
 | to | 到第几个 |updated_at | 更新时间 |
 
+
 | code | message | 说明 |
-|---|---|--|
-| 200 | ok | |
+|---|:---:|:--:|
+| 200 | ok |--|
 | 400 | token_invalid | 错误token |
 | 401 | token_expired | 过期token |
 | 404 | user_not_found | 用户未找到 |
@@ -179,11 +180,11 @@
  > 请求方法: post
 
  > 请求参数:
-
- | 参数 | 说明 |
- | --- | ---|
- | phone | 手机号码 |
- | password | 密码 |
+ 
+| 参数 | 说明 |
+|:---:|:---:|
+| phone | 手机号码 |
+| password | 密码 |
 
  > 返回：token
 
@@ -197,6 +198,7 @@
  > 请求方法: get
 
  > 返回：用户对象
+ 
 ```
 {
     "user": {
