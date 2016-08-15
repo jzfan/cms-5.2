@@ -31,7 +31,7 @@
 5. 在/public目录下需要建立目录/img/page_img, /img/upload
 
 ## Demo
-> [测试站](http://120.76.72.51/backend)
+> [测试站: http://120.76.72.51/backend](http://120.76.72.51/backend)
 
 ## Admin login details
 - Url: sites-public-url/backend
@@ -66,7 +66,6 @@
 | 400 | token_invalid | 错误token |
 | 401 | token_expired | 过期token |
 | 404 | user_not_found | 用户未找到 |
-| 400 | token_invalid | 错误token |
 
 ### 首页
 
@@ -104,7 +103,7 @@
     },
     "code": 200,
     "message": "ok"
-}
+    }
     ```
     
 - 焦点图
@@ -133,7 +132,7 @@
         ],
         "code": 200,
         "message": "ok"
-    }
+        }
     ```
 ### 分类页
 
@@ -146,7 +145,7 @@
     > 返回: 返回分页对象
     
     ```
-{
+    {
     "data": {
         "per_page": 10,
         "current_page": 1,
@@ -171,8 +170,8 @@
     },
     "code": 200,
     "message": "ok"
-}
-    ```
+   }
+   ```
 
 ### login
  > 请求地址： /api/login
@@ -183,7 +182,7 @@
 
  | 参数 | 说明 |
  | --- | ---|
- | email | 邮箱 |
+ | phone | 手机号码 |
  | password | 密码 |
 
  > 返回：token
@@ -198,7 +197,7 @@
  > 请求方法: get
 
  > 返回：用户对象
- ```
+```
 {
     "user": {
         "id": 1, 
@@ -211,4 +210,4 @@
         "updated_at": "2016-08-11 16:27:16"
     }
 }
- ```
+```
