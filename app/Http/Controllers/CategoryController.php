@@ -48,19 +48,19 @@ class CategoryController extends Controller
 
     public function getArticlesByCategoryJson(Category $category)
     {
-        $articles = $this->getArticlePageByCategory($category);
-        return response()->json($articles);
+        $articles = $this->getArticlePageByCategory($category)->toArray();
+        return response()->json(['data'=>$articles, 'code'=>200, 'message'=>'ok']);
     }
 
     public function getAllJson()
     {
-        return response()->json(Category::all());
+        return response()->json(['data'=>Category::all()->toArray(), 'code'=>200, 'message'=>'ok']);
     }
 
     private function getArticlePageByCategory($category)
     {
         return Article::whereHas('categories', function ($q) use ($category) {
             $q->where('id', $category->id);
-        })->paginate(config('cms.per_page'));
+        })->simplePaginate(config('cms.per_page'));
     }
 }

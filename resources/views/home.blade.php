@@ -4,13 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+        @forelse ($articles as $a)
+<div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">{{ $a->title }}</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+               <h4> <img src='/img/page_img/{{ $a->page_img }}' class='margin'>
+                  {{ $a->content }}</h4>
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
+                </div><!-- /.box-body -->
+              </div>
+@empty
+@endforelse
+{!! $articles->links() !!}
         </div>
     </div>
 </div>

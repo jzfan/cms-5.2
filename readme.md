@@ -60,6 +60,14 @@
 | from | 从第几个 |created_at | 创建时间 |
 | to | 到第几个 |updated_at | 更新时间 |
 
+| code | message | 说明 |
+|---|---|
+| 200 | ok | |
+| 400 | token_invalid | 错误token |
+| 401 | token_expired | 过期token |
+| 404 | user_not_found | 用户未找到 |
+| 400 | token_invalid | 错误token |
+
 ### 首页
 
 - 列表
@@ -72,31 +80,31 @@
     
     ```
     {
-        "total": 30,            
-        "per_page": 10,  
-        "current_page": 1, 
-        "last_page": 3,
-        "next_page_url": "http://cms.dev/api/article?page=2", 
+    "data": {
+        "per_page": 10,
+        "current_page": 1,
+        "next_page_url": "http://cms.dev/api/article?page=2",
         "prev_page_url": null,
-        "from": 1, 
-        "to": 10, 
+        "from": 1,
+        "to": 10,
         "data": [
             {
-                "id": 30,
-                "title": "in qui saepe", 
-                "summary": "Similique quisquam quo deserunt quis sed.",
-                "page_img": "2.jpg",
-                //页头图片名 src = '/img/page_img/2.jpg'
-                "content": "Quo tempora ut praesentium iusto suscipit perspiciatis et blanditiis. Non distinctio officia consequatur.",
-               //内容
-               "source": "example.org", //来源
-                "provider": "Nick Heaney", //提供者
-                "created_at": "2016-08-08 06:17:03", //创建时间
-                "updated_at": "2016-08-08 06:17:03"  //更新时间
+                "id": 32,
+                "title": "ut dolor earum",
+                "summary": "Maiores ipsam sed sed.",
+                "page_img": "1.jpg",
+                "content": "Impedit rerum omnis suscipit rerum est commodi. Voluptates dolorem voluptas voluptatem suscipit ipsam incidunt asperiores incidunt. Similique dolor eveniet eius laborum ut dignissimos.",
+                "source": "example.com",
+                "provider": "Dr. Arely Pfeffer MD",
+                "created_at": "2016-08-11 11:06:05",
+                "updated_at": "2016-08-11 11:06:05"
             },
-             ...
+            ......
         ]
-    }
+    },
+    "code": 200,
+    "message": "ok"
+}
     ```
     
 - 焦点图
@@ -108,26 +116,24 @@
   > 返回：返回数组
   
    ```
-    [
-        {
-            "id": 1,
-            "title": "Hic rerum sapiente optio.aaa", //标题
-            "img": "/img/slider/Desert.jpg",  //图片地址
-            "link": "/article/433"  //链接地址
-        },
-        {
-            "id": 3,
-            "title": "A quia maxime possimus ad nobis.",
-            "img": "/img/slider/Tulips.jpg",
-            "link": "/article/33"
-        },
-        {
-            "id": 4,
-            "title": "11",
-            "img": "/img/slider/Chrysanthemum.jpg",
-            "link": "2"
-        }
-    ]
+    {
+        "data": [
+            {
+                "id": 1,
+                "title": "1111111",
+                "img": "/img/slider/Koala.jpg",
+                "link": ""
+            },
+            {
+                "id": 2,
+                "title": "22",
+                "img": "/img/slider/1.jpg",
+                "link": ""
+            }
+        ],
+        "code": 200,
+        "message": "ok"
+    }
     ```
 ### 分类页
 
@@ -140,30 +146,32 @@
     > 返回: 返回分页对象
     
     ```
-    {
-    "total": 2, 
-    "per_page": 10, 
-    "current_page": 1, 
-    "last_page": 1, 
-    "next_page_url": null, 
-    "prev_page_url": null, 
-    "from": 1, 
-    "to": 2, 
-    "data": [
-        {
-            "id": 3, 
-            "title": "ut qui iste", 
-            "summary": "Maxime officiis quas unde assumenda nisi consequuntur nostrum.", 
-            "page_img": "3.jpg", 
-            "content": "Sapiente eum aut tempora ipsam rerum velit. A et tempora unde totam. Fugiat molestias et culpa voluptatibus. Enim est dolores vitae voluptatem vel blanditiis officiis.", 
-            "source": "example.com", 
-            "provider": "Ms. Peggie Kovacek MD", 
-            "created_at": "2016-08-11 11:06:05", 
-            "updated_at": "2016-08-11 11:06:05"
-        }, 
-     ...
-    ]
-    }
+{
+    "data": {
+        "per_page": 10,
+        "current_page": 1,
+        "next_page_url": null,
+        "prev_page_url": null,
+        "from": 1,
+        "to": 3,
+        "data": [
+            {
+                "id": 1,
+                "title": "optio dolor id",
+                "summary": "Quis molestiae qui possimus corrupti est blanditiis fugiat.",
+                "page_img": "2.jpg",
+                "content": "Qui dolores molestiae sit. Ex ab est incidunt fugiat. Autem culpa aspernatur et autem et dolor voluptas. Voluptatibus ut blanditiis incidunt consequatur suscipit ipsum quia.",
+                "source": "example.com",
+                "provider": "Dolores Quigley DVM",
+                "created_at": "2016-08-11 11:06:05",
+                "updated_at": "2016-08-11 11:06:05"
+            },
+            ......
+        ]
+    },
+    "code": 200,
+    "message": "ok"
+}
     ```
 
 ### login

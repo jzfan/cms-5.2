@@ -12,15 +12,12 @@
 */
 Route::group(['middleware'=>'web'], function(){
 
-	Route::get('/', function () {
-	    return view('welcome');
-	});
-
 	Route::auth();
 
-	Route::get('/home', 'HomeController@index');
+	Route::get('/', 'HomeController@index');
 
 	Route::get('/article/{article}', 'ArticleController@show');
+	Route::get('/category/{category}', 'CategoryController@show');
 
 	Route::group(['prefix' => 'backend', 'middleware' => 'admin'], function(){
 		Route::get('/', 'ArticleController@index');
@@ -45,4 +42,4 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::get('/user', 'Auth\\JwtController@getAuthenticatedUser');
 });
 
-Route::get('/category/{category}', 'CategoryController@show');
+Route::get('alert', 'Auth\\JwtController@alert');

@@ -20,12 +20,12 @@
                                 @endif
           </div>
 
-          <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            @if ($errors->has('email'))
+          <div class="form-group has-feedback{{ $errors->has('phone') ? ' has-error' : '' }}">
+            <input type="text" class="form-control" placeholder="phone" name="phone" value="{{ old('phone') }}">
+            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+            @if ($errors->has('phone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
 
@@ -62,3 +62,9 @@
       </div><!-- /.form-box -->
     </div>
 @endsection
+
+@section('js')
+  @include('common.sweetalert.error')
+  @include('common.sweetalert.session')
+  @include('common.sweetalert.confirmDelete')
+@stop

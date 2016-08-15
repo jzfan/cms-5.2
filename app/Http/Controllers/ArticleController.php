@@ -81,7 +81,7 @@ class ArticleController extends Controller
 
     public function getJson()
     {
-        $articles = Article::orderBy('id', 'desc')->paginate(10);
-        return response()->json($articles);
+        $articles = Article::orderBy('id', 'desc')->simplePaginate(config('cms.per_page'))->toArray();
+        return response()->json(['data'=>$articles, 'code'=>200, 'message'=>'ok']);
     }
 }

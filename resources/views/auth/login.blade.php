@@ -9,15 +9,15 @@
         <p class="login-box-msg">Sign in to start your session</p>
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
           {{ csrf_field() }}
-          <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-            <input type="email" class="form-control" placeholder="Email" name='email' value='{{ old("email") }}'>
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          @if ($errors->has('email'))
-                <span class="help-block"> <strong>{{ $errors->first('email') }}</strong>
+          <div class="form-group has-feedback {{ $errors->has('phone') ? ' has-error' : '' }}">
+            <input type="text" class="form-control" placeholder="phone" name='phone' value='{{ old("phone") }}'>
+            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+          @if ($errors->has('phone'))
+                <span class="help-block"> <strong>{{ $errors->first('phone') }}</strong>
                 </span>
         @endif
           </div>
-          <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
+          <div class="form-group has-feedback {{ $errors->has('phone') ? ' has-error' : '' }}">
             <input type="password" class="form-control" placeholder="Password" name='password'>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             @if ($errors->has('password'))

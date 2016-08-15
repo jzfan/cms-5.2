@@ -58,9 +58,9 @@ class SliderController extends Controller
 
     public function getJson(){
         $sliders = Cache::remember('slider-cache-last', 1, function(){
-            return Slider::select('id', 'title', 'img', 'link')->get();
+            return Slider::select('id', 'title', 'img', 'link')->get()->toArray();
         });
-        return response()->json($sliders);
+        return response()->json(['data'=>$sliders, 'code'=>200, 'message'=>'ok']);
     }
 
     private function uploadImageHandle($request)

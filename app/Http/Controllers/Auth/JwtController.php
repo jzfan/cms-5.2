@@ -16,18 +16,21 @@ class JwtController extends Controller
         $credentials = $request->only('email', 'password');
         // attempt to verify the credentials and create a token for the user
         if (! $token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'invalid_credentials'], 401);
+            return response()->json(['message' => 'invalid_credentials', 'code'=>401]);
         }
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json(['data'=>compact('token'), 'code'=>200, 'message'=>'ok']);
     }
 
     public function getAuthenticatedUser()
 	{
+
         if (! $user = JWTAuth::parseToken()->authenticate()) {
-            return response()->json(['user_not_found'], 404);
+            return response()->json(['message'=>'user_not_found', 'code'=>404]);
         }
-	    // the token is valid and we have found the user via the sub claim
-	    return response()->json(compact('user'));
+
+        return response()->json(['data'=>compact('user'), 'message'=>'ok', 'code'=>200]);
+        
 	}
+
 }
