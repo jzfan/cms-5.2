@@ -67,6 +67,7 @@
 | 400 | token_invalid | 错误token |
 | 401 | token_expired | 过期token |
 | 404 | user_not_found | 用户未找到 |
+| 1401 | invalid_credentials | 用户名/密码 错误 |
 
 ### 首页
 
@@ -188,9 +189,15 @@
 
  > 返回：token
 
- ```
- {"token":"eyJ0eXAiOiJKV1..."}
- ```
+```
+{
+    "data": {
+        "token": "eyJ0eXA.."
+    },
+    "code": 200,
+    "message": "ok"
+}
+```
 
 ### user
  > 请求地址： /api/user/?token={yourtokenhere}
@@ -201,15 +208,19 @@
  
 ```
 {
-    "user": {
-        "id": 1, 
-        "name": "admin", 
-        "gender": "保密", 
-        "email": "admin@admin.com", 
-        "phone": "88888888", 
-        "avatar": "default.png", 
-        "created_at": "2016-08-11 11:06:04", 
-        "updated_at": "2016-08-11 16:27:16"
-    }
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "admin",
+            "gender": "保密",
+            "email": "admin@admin.com",
+            "phone": "88888888",
+            "avatar": "default.png",
+            "created_at": "2016-08-11 11:06:04",
+            "updated_at": "2016-08-15 11:33:20"
+        }
+    },
+    "message": "ok",
+    "code": 200
 }
 ```
