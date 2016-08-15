@@ -35,7 +35,7 @@
 
 ## Admin login details
 - Url: sites-public-url/backend
-- admin: admin@admin.com - 123
+- admin: 88888888 - 123
 
 ## ToDo
 - 缓存更新事件
