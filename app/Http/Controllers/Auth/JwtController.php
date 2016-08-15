@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class JwtController extends Controller
+class JwtController extends AuthController
 {
 
     public function authenticate(Request $request)
@@ -32,5 +32,18 @@ class JwtController extends Controller
         return response()->json(['data'=>compact('user'), 'message'=>'ok', 'code'=>200]);
         
 	}
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            return response()->json(['message'=> 'validate_error', 'code'=>1402]);
+        }
+
+        $this->create($request->all());
+
+        return $this->authenticate($request);
+    }
 
 }

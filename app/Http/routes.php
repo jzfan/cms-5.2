@@ -40,6 +40,7 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::get('/category', 'CategoryController@getAllJson');
 	Route::post('/token', 'Auth\\JwtController@authenticate');
 	Route::get('/user', 'Auth\\JwtController@getAuthenticatedUser');
+	Route::post('/register', 'Auth\\JwtController@register');
 });
 
 Route::get('alert', 'Auth\\JwtController@alert');

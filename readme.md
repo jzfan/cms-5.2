@@ -68,6 +68,7 @@
 | 401 | token_expired | 过期token |
 | 404 | user_not_found | 用户未找到 |
 | 1401 | invalid_credentials | 用户名/密码 错误 |
+| 1402 | validate_error | 注册验证 错误 |
 
 ### 首页
 
@@ -224,3 +225,20 @@
     "code": 200
 }
 ```
+
+### register
+> 请求地址： /api/register
+> 请求方法: post
+> 请求参数
+
+| 参数 | 说明 |
+|:---:|:---:|
+| phone | 手机号码 |
+| name | 用户名 |
+| password | 密码 |
+| password_confirmation | 密码确认 |
+
+> 返回：token
+
+ 
+
