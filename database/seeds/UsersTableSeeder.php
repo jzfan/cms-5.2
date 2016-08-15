@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
     	User::truncate();
         User::create([
         	'name' => 'admin',
+            'job' => 'Web Designer',
         	'email' => 'admin@admin.com',
         	'password' => bcrypt('123'),
             'avatar' => 'default.png',
@@ -22,6 +23,7 @@ class UsersTableSeeder extends Seeder
         	]);
         User::create([
         	'name' => 'demo',
+            'job' => 'Web Tester',
         	'email' => 'demo@demo.com',
         	'password' => bcrypt('123'),
             'avatar' => 'default.png',
