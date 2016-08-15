@@ -61,7 +61,7 @@
 | to | 到第几个 |updated_at | 更新时间 |
 
 | code | message | 说明 |
-|---|---|
+|---|---|--|
 | 200 | ok | |
 | 400 | token_invalid | 错误token |
 | 401 | token_expired | 过期token |
