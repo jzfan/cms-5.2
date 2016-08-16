@@ -25,7 +25,7 @@ class UpdateUser extends Request
     {
         return [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'phone' => ['required', 'regex:/^1[34578][0-9]{9}$/'],
         ];
     }
 }

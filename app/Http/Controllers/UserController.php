@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\UpdateUser;
 use App\User;
+use App\Jobs\UploadDropzoneImage;
 
 class UserController extends Controller
 {
@@ -33,11 +34,9 @@ class UserController extends Controller
     	return back();
     }
 
-    private function pageImgHandle(Request $request)
+    public function uploadAvatar(Request $request)
     {
-    	$page_img = $request->file('page_img');
-    	$name = $page_img->getClientOriginalName();
-    	$page_img->move(public_path() . '/img/page_img', $name);
-    	return $name;
+        return $this->dispatch(new UploadDropzoneImage($request));
     }
+
 }

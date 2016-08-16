@@ -24,6 +24,10 @@ return array(
     'slider' => [
         'width' => 640,
         'height' => 360
+    ],
+
+    'avatar' => [
+        'width' => 100,
     ]
 
 );

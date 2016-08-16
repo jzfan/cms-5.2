@@ -24,6 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="/css/sweetalert.css">
+  <link rel="stylesheet" href="/css/dropzone.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -195,6 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="/js/app.min.js"></script>
 <script src="/js/sweetalert.min.js"></script>
+<script src="/js/dropzone.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

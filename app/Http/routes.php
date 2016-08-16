@@ -27,7 +27,8 @@ Route::group(['middleware'=>'web'], function(){
 		Route::resource('category', 'CategoryController', ['except' => ['show', 'create', 'edit']]);
 		Route::resource('slider', 'SliderController', ['except' => ['show']]);
 
-		Route::post('/backend/article/uploadImage', 'ArticleController@uploadEditorImages');
+		Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
+		Route::post('/upload/avatar', 'UserController@uploadAvatar');
 		Route::get('/help/icon', 'HelperController@showIcons');
 	});
 });

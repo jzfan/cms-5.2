@@ -27,6 +27,7 @@
 								<th class="sorting_asc">id</th>
 								<th class="sorting">头像</th>
 								<th class="sorting">用户名</th>
+								<th class="sorting">职位</th>
 								<th class="sorting">邮箱</th>
 								<th class="sorting">性别</th>
 								<th class="sorting">电话</th>
@@ -40,6 +41,7 @@
 
 								<td><img src='/img/avatar/{{ $u->avatar }}' width=45 class='img-circle'></td>
 								<td>{{ $u->name }}</td>
+								<td>{{ $u->job }}</td>
 								<td>{{ $u->email }}</td>
 								<td>{{ $u->gender }}</td>
 								<td>{{ $u->phone }}</td>

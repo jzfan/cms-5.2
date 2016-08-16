@@ -31,7 +31,7 @@
 5. 在/public目录下需要建立目录/img/page_img, /img/upload
 
 ## Demo
-> [测试站: http://120.76.72.51/backend](http://120.76.72.51/backend)
+> [测试站: http://120.76.72.51:88/backend](http://120.76.72.51:88/backend)
 
 ## Admin login details
 - Url: sites-public-url/backend
@@ -74,13 +74,13 @@
 
 - 列表
 
-    > 请求地址：/api/article
-   
-    > 请求方法：get
-    
-    > 返回: 返回分页对象
-    
-    ```
+> 请求地址：/api/article
+
+> 请求方法：get
+
+> 返回: 返回分页对象
+
+```
     {
     "data": {
         "per_page": 10,
@@ -107,17 +107,17 @@
     "code": 200,
     "message": "ok"
     }
-    ```
+ ```
     
 - 焦点图
 
-  > 请求地址：/api/slider
-  
-  > 请求方法：get
- 
-  > 返回：返回数组
-  
-   ```
+> 请求地址：/api/slider
+
+> 请求方法：get
+
+> 返回：返回数组
+
+```
     {
         "data": [
             {
@@ -136,18 +136,45 @@
         "code": 200,
         "message": "ok"
         }
-    ```
+```
+
 ### 分类页
+- 所有分类
+
+> 请求地址：/api/category
+
+> 请求方法：get
+
+> 返回: 返回所有分类
+
+```
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "maxime2",
+            "icon": "fa-flask",
+            "description": "Doloremque eos iste omnis.",
+            "created_at": "2016-08-15 16:29:25",
+            "updated_at": "2016-08-15 16:43:51"
+        },
+.....
+    ],
+    "code": 200,
+    "message": "ok"
+}
+```
 
 - 列表
 
-    > 请求地址：/api/category/category-id
-   
-    > 请求方法：get
+> 请求地址：/api/category/category-id
+
+> 请求方法：get
+
+> 返回: 返回分页对象
+
     
-    > 返回: 返回分页对象
-    
-    ```
+```
     {
     "data": {
         "per_page": 10,
@@ -174,21 +201,22 @@
     "code": 200,
     "message": "ok"
    }
-   ```
+```
 
 ### login
- > 请求地址： /api/login
 
- > 请求方法: post
+> 请求地址： /api/login
 
- > 请求参数:
+> 请求方法: post
+
+> 请求参数:
  
 | 参数 | 说明 |
 |:---:|:---:|
 | phone | 手机号码 |
 | password | 密码 |
 
- > 返回：token
+> 返回：token
 
 ```
 {
@@ -201,6 +229,7 @@
 ```
 
 ### user
+
  > 请求地址： /api/user/?token={yourtokenhere}
 
  > 请求方法: get
@@ -227,14 +256,18 @@
 ```
 
 ### register
+
 > 请求地址： /api/register
+
 > 请求方法: post
+
 > 请求参数
 
 | 参数 | 说明 |
 |:---:|:---:|
 | phone | 手机号码 |
 | name | 用户名 |
+| job | 职业 |
 | password | 密码 |
 | password_confirmation | 密码确认 |
 
