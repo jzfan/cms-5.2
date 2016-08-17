@@ -35,8 +35,13 @@
 
 ## Admin login details
 - Url: sites-public-url/backend
+<<<<<<< Updated upstream
 - admin: 88888888 - 123
 
+=======
+- admin: admin@admin.com - 123
+- 
+>>>>>>> Stashed changes
 ## ToDo
 - 缓存更新事件
 - CSS, JS 合并压缩
@@ -205,14 +210,19 @@
 
 ### login
 
-> 请求地址： /api/login
+> 请求地址： /api/token
 
 > 请求方法: post
 
+<<<<<<< Updated upstream
 > 请求参数:
  
 | 参数 | 说明 |
 |:---:|:---:|
+=======
+| 参数 | 说明 |
+| --- | ---|
+>>>>>>> Stashed changes
 | phone | 手机号码 |
 | password | 密码 |
 

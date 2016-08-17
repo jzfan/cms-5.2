@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "intervention/image": "^2.3",
         "uxweb/sweet-alert": "~1.1",
-        "tymon/jwt-auth": "0.5.*"
+        "tymon/jwt-auth": "0.5.*",
+        "php-ffmpeg/php-ffmpeg": "~0.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

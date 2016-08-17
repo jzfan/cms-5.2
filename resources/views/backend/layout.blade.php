@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>{{ config('cms.title') }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -135,6 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li @if(Request::is('backend/user*')) class="active" @endif><a href="/backend/user"><i class="fa fa-user"></i> <span>用户</span></a></li>
         <li @if(Request::is('backend/slider*')) class="active" @endif><a href="/backend/slider"><i class="fa fa-image"></i> <span>焦点图</span></a></li>
         <li @if(Request::is('backend/admin*')) class="active" @endif><a href="/backend/admin"><i class="fa fa-user-secret"></i> <span>管理员</span></a></li>
+        <li @if(Request::is('backend/video*')) class="active" @endif><a href="/backend/video"><i class="fa fa-film"></i> <span>视频</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-question"></i> <span>帮助</span>
             <span class="pull-right-container">

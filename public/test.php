@@ -1,25 +1,19 @@
-<?php
-//创建可抛出一个异常的函数
-function checkNum($number)
- {
- if($number>1)
-  {
-  throw new Exception("Value must be 1 or below");
-  }
- return true;
- }
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <link rel="stylesheet" href="/css/dropzone.min.css">
+</head>
+<body>
 
-//在 "try" 代码块中触发异常
-try
- {
- checkNum(2);
- //If the exception is thrown, this text will not be shown
- echo 'If you see this, the number is 1 or below';
- }
-
-//捕获异常
-catch(Exception $e)
- {
- echo 'Message: ' .$e->getMessage();
- }
-?>
+<div type="text" id="video" class='dropzone' style="display: inline-block">
+                      </div>
+</body>
+<script src="/js/jquery-2.2.3.min.js"></script>
+<script src="/js/dropzone.min.js"></script>
+<script type="text/javascript">
+Dropzone.autoDiscover = false;
+$("div#video").dropzone({ url: "/backend/upload/video",
+});
+</script>
+</html>
