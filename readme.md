@@ -212,7 +212,7 @@
 
 ### login
 
-> 请求地址： /api/login
+> 请求地址： /api/token
 
 > 请求方法: post
 
