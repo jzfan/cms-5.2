@@ -49,4 +49,7 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::post('/register', 'Auth\\JwtController@register');
 });
 
-Route::get('ff', 'TestController@ff');
+Route::group(['prefix'=>'api', 'middleware'=>'throttle:60'], function(){
+	Route::post('/verify', 'Auth\\JwtController@postVerify');
+	Route::get('/verify/{phone}', 'Auth\\JwtController@getVerify');
+});

@@ -159,6 +159,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        Toplan\PhpSms\PhpSmsServiceProvider::class,
 
     ],
 
@@ -207,7 +208,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
+        'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
 
     ],
 

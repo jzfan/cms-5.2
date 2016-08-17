@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use PhpSms;
+
 class TestController extends Controller
 {
     public function req(Request $request)
@@ -33,5 +35,17 @@ class TestController extends Controller
         $file = public_path().'/'.'a.wmv';
         $ffm = new \App\Helper\FfmpegHandler($file);
         echo $ffm->thumb();
+    }
+
+    public function sms()
+    {
+        $templates = [
+    'YunTongXun' => '109524',
+];
+        $to = '13797528120';
+        $res = PhpSms::make()->to($to)->template(['YunTongXun'=>config('phpsms.agents.YunTongXun.template_id.wuHanLianZheng')])
+                ->data(['8888', '60'])
+                ->send();
+    dd($res);
     }
 }

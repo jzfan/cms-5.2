@@ -74,6 +74,8 @@
 | 404 | user_not_found | 用户未找到 |
 | 1401 | invalid_credentials | 用户名/密码 错误 |
 | 1402 | validate_error | 注册验证 错误 |
+| 2400 | verify_expired | 验证码 过期 |
+| 2401 | verify_error | 验证码 错误 |
 
 ### 首页
 
@@ -282,6 +284,45 @@
 | password_confirmation | 密码确认 |
 
 > 返回：token
+
+
+###验证码
+
+> 请求地址： /api/verify/{your phone number}
+
+> 请求方法: get
+
+> 请求参数
+
+| 参数 | 说明 |
+|:---:|:---:|
+| phone | 手机号码 |
+
+> 返回：数组
+
+```
+{
+  "code": 200,
+  "message": "ok",
+  "hash": "$2y$10$TredMy6ABGaeMgf77V9Bku.aPTs91F0/HRzPsYAuT5knVs7TyVU4G",
+  "time": 1471428582
+}
+```
+
+> 请求地址： /api/verify
+
+> 请求方法: post
+
+> 请求参数
+
+| 参数 | 说明 |
+|:---:|:---:|
+| hash | 收到的hash |
+| time | 收到的时间戳 |
+| verify | 输入验证码 |
+
+> 返回：验证结果
+
 
  
 

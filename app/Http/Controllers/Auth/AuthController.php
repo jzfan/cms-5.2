@@ -52,10 +52,9 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-<<<<<<< Updated upstream
+
             'job' => 'required|max:255',
-=======
->>>>>>> Stashed changes
+
             // 'email' => 'required|email|max:255|unique:users',
             'phone' => ['required', 'unique:users', 'regex:/^1[34578][0-9]{9}$/'],
             'password' => 'required|min:6|confirmed',
