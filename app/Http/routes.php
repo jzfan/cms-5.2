@@ -26,9 +26,14 @@ Route::group(['middleware'=>'web'], function(){
 		Route::resource('admin', 'AdminController', ['except' => ['show', 'create', 'edit', 'update']]);
 		Route::resource('category', 'CategoryController', ['except' => ['show', 'create', 'edit']]);
 		Route::resource('slider', 'SliderController', ['except' => ['show']]);
+		Route::resource('video', 'VideoController', ['except' => ['show']]);
 
 		Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
 		Route::post('/upload/avatar', 'UserController@uploadAvatar');
+		
+// Route::get('/test', 'TestController@index');
+// Route::post('/test/upload', 'TestController@upload');
+		Route::post('/upload/video', 'VideoController@upload');
 		Route::get('/help/icon', 'HelperController@showIcons');
 	});
 });
@@ -44,4 +49,4 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::post('/register', 'Auth\\JwtController@register');
 });
 
-Route::get('alert', 'Auth\\JwtController@alert');
+Route::get('ff', 'TestController@ff');

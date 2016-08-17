@@ -76,14 +76,16 @@ $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
   radioClass: 'iradio_flat-green'
 });
 // avatar dropzone
+Dropzone.autoDiscover = false;
 $("div#avatar").dropzone({ url: "/backend/upload/avatar",
         maxFiles: 1,
         maxFilesize: 2,
-        acceptedFiles: 'image/*',
+        // acceptedFiles: 'image/*',
         sending: function(file, xhr, formData){
             formData.append('_token', "{!! csrf_token() !!}");
         },
         success: function(file, response){
+          console.log(response);
             $('#avatar-img').attr('src', response);
             var arr = response.split('/');
             var avatar = arr[arr.length - 1];
