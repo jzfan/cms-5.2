@@ -18,7 +18,10 @@
     <i class="fa fa-image"></i>
     <h3 class="box-title">视频{{ $video->id }}</h3>
     </td>
-    <td width="20%">
+    <td width="10%">
+      <i class="fa fa-eye-open"></i><a href="/video/{{ $video->id }}" target="_blank">预览</a>
+    </td>
+    <td width="10%">
     <form action='/backend/video/{{ $video->id }}' method="post">
       <input type="hidden" name="_method" value="delete"/>
       {!! csrf_field() !!}
@@ -55,10 +58,11 @@
 Dropzone.options.addVideo = {
         maxFilesize : 25,
         dictDefaultMessage : '上传视频',
-        // acceptedFiles: 'image/*'
+        sending: function(file, xhr, formData){
+            formData.append('_token', "{!! csrf_token() !!}");
+        },
         success: function(file, response){
-          console.log(response);
-          $('.dz-image img').attr('src', '/video/'+response+'.jpg');
+          $('.dz-image img').attr('src', '/video/'+response+'.jpg').css('width', '100%').css('height', '100%');
         }
     };
 </script>

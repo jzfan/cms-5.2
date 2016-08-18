@@ -6,35 +6,41 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateSlider;
 use App\Http\Requests\UpdateSlider;
+use App\Category;
 use App\Slider;
 use Image;
 use Cache;
 
 class SliderController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = Category::all();
+    }
 
     public function index()
     {
-    	$sliders = Slider::all();
+    	$groupSliders = Slider::groupBy('category_id')->get();
 
-    	return view('backend.slider.index', compact('sliders'));
+    	return view('backend.slider.index', compact('groupSliders'));
     }
 
     public function create()
     {
-    	return view('backend.slider.create');
+    	return view('backend.slider.create', ['categories' => $this->categories]);
     }
 
     public function store(CreateSlider $request)
     {
     	Slider::create( $request->input() + ['img' => $this->uploadImageHandle($request)]);
-        alert()->success('创建成功！');
     	return redirect('/backend/slider');
     }
 
     public function edit(Slider $slider)
     {
-        return view('backend.slider.edit', compact('slider'));
+        return view('backend.slider.edit', ['slider'=>$slider, 'categories'=>$this->categories]);
     }
 
     public function update(Slider $slider, UpdateSlider $request)
@@ -45,14 +51,12 @@ class SliderController extends Controller
         }else{
             $slider->update( $request->input());
         }
-        alert()->success('更新成功！');
         return redirect('/backend/slider');
     }
 
     public function destroy(Slider $slider)
     {
         $slider->delete();
-        alert()->success('删除成功！');
         return back();
     }
 

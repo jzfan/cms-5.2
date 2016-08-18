@@ -18,6 +18,7 @@ Route::group(['middleware'=>'web'], function(){
 
 	Route::get('/article/{article}', 'ArticleController@show');
 	Route::get('/category/{category}', 'CategoryController@show');
+	Route::get('/video/{video}', 'VideoController@show');
 
 	Route::group(['prefix' => 'backend', 'middleware' => 'admin'], function(){
 		Route::get('/', 'ArticleController@index');
@@ -26,7 +27,7 @@ Route::group(['middleware'=>'web'], function(){
 		Route::resource('admin', 'AdminController', ['except' => ['show', 'create', 'edit', 'update']]);
 		Route::resource('category', 'CategoryController', ['except' => ['show', 'create', 'edit']]);
 		Route::resource('slider', 'SliderController', ['except' => ['show']]);
-		Route::resource('video', 'VideoController', ['except' => ['show']]);
+		Route::resource('video', 'VideoController', ['except' => ['show', 'create', 'store', 'show', 'edit']]);
 
 		Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
 		Route::post('/upload/avatar', 'UserController@uploadAvatar');
@@ -49,7 +50,7 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::post('/register', 'Auth\\JwtController@register');
 });
 
-Route::group(['prefix'=>'api', 'middleware'=>'throttle:60'], function(){
+Route::group(['prefix'=>'api', 'middleware'=>'throttle:1'], function(){
 	Route::post('/verify', 'Auth\\JwtController@postVerify');
 	Route::get('/verify/{phone}', 'Auth\\JwtController@getVerify');
 });

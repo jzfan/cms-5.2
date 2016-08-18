@@ -16,6 +16,8 @@ class CreateVideosTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
+            $table->string('ext');
+            $table->string('thumb');
             $table->string('duration');
             $table->timestamps();
         });

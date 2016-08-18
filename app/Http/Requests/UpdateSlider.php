@@ -13,7 +13,7 @@ class UpdateSlider extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,7 @@ class UpdateSlider extends Request
     public function rules()
     {
         return [
-            'imd' => 'required|max:255',
-            'title' => 'required|max:255',
+            'title' => 'required|max:255'
         ];
     }
 }

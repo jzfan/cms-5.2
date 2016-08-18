@@ -40,7 +40,7 @@ class FfmpegHandler
 		$file_path = public_path().'/video/'.$name.'.jpg';
 		$this->video->frame(TimeCode::fromSeconds(10))
     				->save($file_path);
-    	return $name;
+    	return $name.'.jpg';
 	}
 
 	public function duration()

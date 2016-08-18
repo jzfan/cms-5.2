@@ -22,21 +22,18 @@ class CategoryController extends Controller
     public function store(CreateCategory $request)
     {
     	Category::create($request->input());
-        alert()->success('创建成功！');
     	return redirect('/backend/category');
     }
 
     public function update(Category $category, UpdateCategory $request)
     {
         $category->update($request->input());
-        alert()->success('更新成功！');
         return redirect('/backend/category');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        alert()->success('删除成功！');
         return back();
     }
 

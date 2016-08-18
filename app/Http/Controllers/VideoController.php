@@ -12,23 +12,16 @@ class VideoController extends Controller
 {
 	public function index()
 	{
-		$videoes = Video::all();
+		$videoes = Video::orderBy('id', 'desc')->get();
     	return view('backend.video.index', compact('videoes'));		
 	}
 
-	public function create()
+    public function show(Video $video)
     {
-    	return view('backend.video.create');
+        return view('frontend.video', compact('video'));
     }
 
-    public function store(Request $request)
-    {
-    	$upload = new Upload($request);
-    	$upload->saveVideo();
-    	// Video::create( $request->input() + ['img' => $this->uploadImageHandle($request)]);
-        alert()->success('创建成功！');
-    	return redirect('/backend/video');
-    }
+
 
     public function destroy(Video $video)
     {
@@ -39,14 +32,16 @@ class VideoController extends Controller
     public function upload(Upload $upload)
     {
         $file = $upload->saveVideo();
+        $name = pathinfo($file)['filename'];
 
         $ffmHandler = new FfmpegHandler($file);
-        $name = $ffmHandler->thumb($file);
+        $thumb = $ffmHandler->thumb($file);
         $duration = $ffmHandler->duration();
-
         Video::create([
             'user_id' => \Auth::user()->id,
             'name' => $name,
+            'ext' => pathinfo($file)['extension'],
+            'thumb' => $thumb,
             'duration' => $duration
         ]);
 

@@ -20,14 +20,12 @@ class AdminController extends Controller
     {
         $user = User::whereIdOrEmail($request->input('id'), $request->input('email'))->first();
     	Admin::create(['user_id' => $user->id]);
-        alert()->success('创建成功！');
     	return redirect('/backend/admin');
     }
 
     public function destroy(Admin $admin)
     {
     	$admin->delete();
-        alert()->success('删除成功！');
     	return back();
     }
 }

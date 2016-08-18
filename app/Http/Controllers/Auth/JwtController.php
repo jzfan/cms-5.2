@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use PhpSms;
+use Validator;
+use App\User;
 
 class JwtController extends Controller
 {
@@ -46,6 +48,17 @@ class JwtController extends Controller
             // 'email' => 'required|email|max:255|unique:users',
             'phone' => ['required', 'unique:users', 'regex:/^1[34578][0-9]{9}$/'],
             'password' => 'required|min:6|confirmed',
+        ]);
+    }
+
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'job' => $data['job'],
+            // 'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => bcrypt($data['password']),
         ]);
     }
 

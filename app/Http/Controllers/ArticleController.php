@@ -15,7 +15,7 @@ class ArticleController extends Controller
 {
     public function show(Article $article)
     {
-        return view('article', compact('article'));
+        return view('frontend.article', compact('article'));
     }
 
     public function index()
@@ -33,8 +33,8 @@ class ArticleController extends Controller
 
     public function store(CreateArticle $request)
     {
-    	Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
-        alert()->success('创建成功！');
+    	$article = Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
+        $article->categories()->attach($request->input('category'));
     	return redirect('/backend/article');
     }
 
@@ -48,14 +48,12 @@ class ArticleController extends Controller
     {
         $article->update($request->input());
         $article->categories()->sync([$request->input('category')]);
-        alert()->success('更新成功！');
         return redirect('/backend/article');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
-        alert()->success('删除成功！');
         return back();
     }
 
@@ -66,7 +64,6 @@ class ArticleController extends Controller
         $page_img->move(public_path() . '/img/page_img', $name);
         return $name;
     }
-
 
     public function uploadEditorImages(Request $request)
     {
