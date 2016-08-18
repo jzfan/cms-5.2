@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
 
-@forelse ($groupSliders as $slider)
+@forelse ($sliders as $slider)
 <div class="col-xs-6 col-md-4">
   
 <div class="box box-solid">

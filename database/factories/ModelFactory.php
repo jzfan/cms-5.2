@@ -41,7 +41,8 @@ $factory->define(App\Slider::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'img' => 'http://temp.im/400x150',
-        'link' => '/article/'. mt_rand(1, 33)
+        'link' => '/article/'. mt_rand(1, 33),
+        'category_id' => mt_rand(1, 5),
     ];
 });
 

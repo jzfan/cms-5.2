@@ -22,9 +22,9 @@ class SliderController extends Controller
 
     public function index()
     {
-    	$groupSliders = Slider::groupBy('category_id')->get();
+    	$sliders = Slider::orderBy('category_id')->get();
 
-    	return view('backend.slider.index', compact('groupSliders'));
+    	return view('backend.slider.index', compact('sliders'));
     }
 
     public function create()
