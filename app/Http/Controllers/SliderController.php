@@ -69,11 +69,11 @@ class SliderController extends Controller
 
     private function uploadImageHandle($request)
     {
-    	$img = $request->file('img');
+    	$img = $request->file('file');
     	$name = $img->getClientOriginalName();
         $imgPath = '/img/slider/';
 
         $img = Image::make($img)->resize(config('image.slider.width'), config('image.slider.height'))->save(public_path(). $imgPath. $name);
-        return env("APP_URL") . $imgPath . $name;  
+        return $imgPath . $name;
     }
 }

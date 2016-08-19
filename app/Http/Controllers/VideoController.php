@@ -21,8 +21,6 @@ class VideoController extends Controller
         return view('frontend.video', compact('video'));
     }
 
-
-
     public function destroy(Video $video)
     {
         $video->delete();
@@ -46,6 +44,12 @@ class VideoController extends Controller
         ]);
 
         return $name;
+    }
+
+    public function getJson()
+    {
+        $videos = Video::orderBy('id', 'desc')->get()->toArray();
+        return response()->json(['data'=>$videos, 'code'=>200, 'message'=>'ok']);
     }
 
 }

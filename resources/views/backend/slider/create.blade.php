@@ -29,7 +29,7 @@
               <input type="text" class="form-control" id="link" name='link' placeholder="请输入链接地址..." value='{{ old("link", "") }}'></div>
             <div class="form-group">
               <label for="img">图片</label>
-              <input type="file" id="img" name='img'>
+              <input type="file" name='file'>
               <p class="help-block">上传合适的图片作为焦点图.</p>
             </div>
           </div>

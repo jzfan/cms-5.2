@@ -45,6 +45,7 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 	Route::get('/article', 'ArticleController@getJson');
 	Route::get('/category/{category}', 'CategoryController@getArticlesByCategoryJson');
 	Route::get('/category', 'CategoryController@getAllJson');
+	Route::get('/video', 'VideoController@getJson');
 	Route::post('/token', 'Auth\\JwtController@authenticate');
 	Route::get('/user', 'Auth\\JwtController@getAuthenticatedUser');
 	Route::post('/register', 'Auth\\JwtController@register');

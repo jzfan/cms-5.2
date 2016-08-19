@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                       <label for="img">更新图片</label>
-                      <input type="file" id="img" name='img'>
+                      <input type="file" name='file'>
                     </div>
                   </div>
                   <div class="box-footer">

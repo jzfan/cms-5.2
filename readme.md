@@ -35,13 +35,8 @@
 
 ## Admin login details
 - Url: sites-public-url/backend
-<<<<<<< Updated upstream
 - admin: 88888888 - 123
 
-=======
-- admin: admin@admin.com - 123
-- 
->>>>>>> Stashed changes
 ## ToDo
 - 缓存更新事件
 - CSS, JS 合并压缩
@@ -322,6 +317,35 @@
 | verify | 输入验证码 |
 
 > 返回：验证结果
+
+###视频
+
+> 请求地址： /api/video
+
+> 请求方法: get
+
+> 返回：所有视频
+
+> url : /video/{video-id}
+
+```
+{
+    "data": [
+        {
+            "id": 14, 
+            "user_id": 1, 
+            "name": "star_war", 
+            "ext": "mp4", 
+            "thumb": "star_war.jpg", 
+            "duration": "20", 
+            "created_at": "2016-08-19 11:28:47", 
+            "updated_at": "2016-08-19 11:28:47"
+        }
+    ], 
+    "code": 200, 
+    "message": "ok"
+}
+```
 
 
  
