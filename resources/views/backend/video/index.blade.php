@@ -34,8 +34,8 @@
   </tr>
   </table><!-- /.box-header -->
   <div class="box-body">
-    <h3>{{ $video->name }}</h3>
-    <p><img src="/video/{{ $video->name }}.jpg" class='img-responsive img-rounded'></p>
+    <h3>{{ $video->original_name }}</h3>
+    <p><img src="/video/{{ $video->thumb }}" class='img-responsive img-rounded'></p>
   </div><!-- /.box-body -->
 </div>
 </div>

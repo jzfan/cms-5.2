@@ -27,23 +27,20 @@ class VideoController extends Controller
         return redirect()->back();
     }
 
-    public function upload(Upload $upload)
+    public function upload(Upload $upload, Request $request)
     {
-        $file = $upload->saveVideo();
-        $name = pathinfo($file)['filename'];
-
-        $ffmHandler = new FfmpegHandler($file);
-        $thumb = $ffmHandler->thumb($file);
-        $duration = $ffmHandler->duration();
+        $file_name = $upload->saveVideo();
+        $ffmHandler = new FfmpegHandler($file_name);
         Video::create([
             'user_id' => \Auth::user()->id,
-            'name' => $name,
-            'ext' => pathinfo($file)['extension'],
-            'thumb' => $thumb,
-            'duration' => $duration
+            'original_name' => $request->file('file')->getClientOriginalName(),
+            'file_name' => pathinfo($file_name)['basename'],
+            'ext' => $request->file('file')->getClientOriginalExtension(),
+            'thumb' => $ffmHandler->thumb(),
+            'duration' => $ffmHandler->duration()
         ]);
 
-        return $name;
+        return pathinfo($file_name)['filename'];
     }
 
     public function getJson()

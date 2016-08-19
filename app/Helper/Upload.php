@@ -26,9 +26,9 @@ class Upload
 	public function saveVideo($path='video')
 	{
 		$destinationPath = public_path().'/'.$path;
-		$name = $this->file->getClientOriginalName();
-    	if ($this->file->move($destinationPath, $this->file->getClientOriginalName())){
-    		return $destinationPath.'/'.$name;
+		$file_name = md5(time() . rand(0, 1000) ). '.' . $this->file->getClientOriginalExtension();
+    	if ($this->file->move($destinationPath, $file_name)){
+    		return $destinationPath.'/'.$file_name;
     	}
     	return false;
 	}

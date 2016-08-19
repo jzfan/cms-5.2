@@ -9,7 +9,7 @@
                 <div class="panel-body">
                 <h3 class="text-center">{{ $video->name }}</h3>
 <video width="100%" controls="controls">
-  <source src="/video/{{ $video->name }}.{{ $video->ext }}" type="video/ogg">
+  <source src="/video/{{ $video->file_name }}" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
