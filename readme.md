@@ -82,6 +82,8 @@
 
 > 返回: 返回分页对象
 
+> 图片uri : /img/page_img/xx.jpg
+
 ```
     {
     "data": {
@@ -175,6 +177,7 @@
 
 > 返回: 返回分页对象
 
+> 图片uri : /img/page_img/xx.jpg
     
 ```
     {
@@ -242,6 +245,8 @@
  > 请求方法: get
 
  > 返回：用户对象
+ 
+ > 图片uri : /img/avatar/xx.jpg
  
 ```
 {
@@ -327,6 +332,8 @@
 > 返回：所有视频
 
 > url : /video/{video-id}
+
+> 图片uri : /video/xx.jpg
 
 ```
 {
