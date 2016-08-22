@@ -24,7 +24,7 @@ class CreateSlider extends Request
     public function rules()
     {
         return [
-            'img' => 'required',
+            'file' => 'required',
             'title' => 'required|unique:sliders|max:255',
         ];
     }

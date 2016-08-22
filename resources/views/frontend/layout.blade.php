@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
   <body style="background: #d2d6de">
-  <nav class="navbar navbar-default navbar-static-top">
+  <nav class="navbar navbar-default navbar-static-top hidden-xs">
         <div class="container">
             <div class="navbar-header">
 
@@ -36,15 +36,15 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="">
-                    Laravel
+                    Logo
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/article">文章</a></li>
+<!--                     <li><a href="/home">Home</a></li>
+                    <li><a href="/article">文章</a></li> -->
                 </ul>
 
                 <!-- Right Side Of Navbar -->
