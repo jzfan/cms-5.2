@@ -41,7 +41,7 @@ Route::group(['middleware'=>'web'], function(){
 
 Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 
-	Route::get('/slider', 'SliderController@getJson');
+	Route::get('/slider/{category_id}', 'SliderController@getJsonByCategory');
 	Route::get('/article', 'ArticleController@getJson');
 	Route::get('/article/{id}', 'ArticleController@getOneJson');
 	Route::get('/category/{category}', 'CategoryController@getArticlesByCategoryJson');

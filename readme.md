@@ -116,31 +116,28 @@
     
 - 焦点图
 
-> 请求地址：/api/slider
+> 请求地址：/api/slider/{category-id}
 
 > 请求方法：get
 
-> 返回：返回数组
+> 返回：返回分类下的焦点图
 
 ```
-    {
-        "data": [
-            {
-                "id": 1,
-                "title": "1111111",
-                "img": "/img/slider/Koala.jpg",
-                "link": ""
-            },
-            {
-                "id": 2,
-                "title": "22",
-                "img": "/img/slider/1.jpg",
-                "link": ""
-            }
-        ],
-        "code": 200,
-        "message": "ok"
+{
+    "data": [
+        {
+            "id": 2,
+            "img": "http://temp.im/400x150",
+            "title": "Occaecati ut aliquid voluptatem incidunt.",
+            "category_id": "2",
+            "link": "/article/31",
+            "created_at": "2016-08-19 16:23:21",
+            "updated_at": "2016-08-19 16:23:21"
         }
+    ],
+    "code": 200,
+    "message": "ok"
+}
 ```
 
 ### 分类页

@@ -60,10 +60,12 @@ class SliderController extends Controller
         return back();
     }
 
-    public function getJson(){
-        $sliders = Cache::remember('slider-cache-last', 1, function(){
-            return Slider::select('id', 'title', 'img', 'link')->get()->toArray();
-        });
+    public function getJsonByCategory($category_id)
+    {
+        $sliders = Slider::where('category_id', $category_id)->orderBy('id', 'desc')->get();
+        if ($sliders->count() === 0) {
+            return response()->json(['code'=>1404, 'message'=>'not found']);            
+        }
         return response()->json(['data'=>$sliders, 'code'=>200, 'message'=>'ok']);
     }
 
