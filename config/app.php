@@ -210,7 +210,6 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
         'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
-
     ],
 
 ];

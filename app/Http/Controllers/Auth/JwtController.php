@@ -64,6 +64,8 @@ class JwtController extends Controller
 
     public function register(Request $request)
     {
+        $request->input('password_confirmation') = $request->input('password_confirmation') ?? $request->input('confirm');
+        
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {

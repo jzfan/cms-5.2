@@ -56,7 +56,7 @@
 @include('common.sweetalert.confirmDelete')
 <script type="text/javascript">
 Dropzone.options.addVideo = {
-        maxFilesize : 25,
+        acceptFields : 'videos/mp4',
         dictDefaultMessage : '上传视频',
         sending: function(file, xhr, formData){
             formData.append('_token', "{!! csrf_token() !!}");

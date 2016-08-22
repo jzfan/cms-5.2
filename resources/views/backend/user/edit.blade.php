@@ -80,7 +80,7 @@ Dropzone.autoDiscover = false;
 $("div#avatar").dropzone({ url: "/backend/upload/avatar",
         maxFiles: 1,
         maxFilesize: 2,
-        // acceptedFiles: 'image/*',
+        acceptedFiles: 'image/jpeg, image/png',
         sending: function(file, xhr, formData){
             formData.append('_token', "{!! csrf_token() !!}");
         },

@@ -211,15 +211,10 @@
 
 > 请求方法: post
 
-<<<<<<< Updated upstream
 > 请求参数:
  
 | 参数 | 说明 |
-|:---:|:---:|
-=======
-| 参数 | 说明 |
 | --- | ---|
->>>>>>> Stashed changes
 | phone | 手机号码 |
 | password | 密码 |
 
