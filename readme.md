@@ -69,6 +69,7 @@
 | 404 | user_not_found | 用户未找到 |
 | 1401 | invalid_credentials | 用户名/密码 错误 |
 | 1402 | validate_error | 注册验证 错误 |
+| 1404 | not found | 请求的资源 未找到 |
 | 2400 | verify_expired | 验证码 过期 |
 | 2401 | verify_error | 验证码 错误 |
 
@@ -349,6 +350,31 @@
 }
 ```
 
+###文章详情页
+
+> 请求地址： /api/article/{article-id}
+
+> 请求方法: get
+
+> 返回：包含单个文章页
+
+```
+{
+    "data": {
+        "id": 2,
+        "title": "earum accusantium nihil",
+        "summary": "Natus eius voluptas officiis consequuntur.",
+        "page_img": "1.jpg",
+        "content": "Distinctio enim facere doloremque suscipit. Officia id aut et sit. Ad dolorem temporibus soluta.",
+        "source": "example.net",
+        "provider": "Christian Pollich DVM",
+        "created_at": "2016-08-19 16:23:21",
+        "updated_at": "2016-08-19 16:23:21"
+    },
+    "code": 200,
+    "message": "ok"
+}
+```
 
  
 

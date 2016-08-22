@@ -20,28 +20,29 @@ class ArticleController extends Controller
 
     public function index()
     {
-    	$articles = Article::with('categories')->orderBy('id', 'desc')->paginate(10);
+        $articles = Article::with('categories')->
+orderBy('id', 'desc')->paginate(10);
 
-    	return view('backend.article.index', compact('articles'));
+        return view('backend.article.index', compact('articles'));
     }
 
     public function create()
     {
-    	$categories = Category::all();
-    	return view('backend.article.create', compact('categories'));
+        $categories = Category::all();
+        return view('backend.article.create', compact('categories'));
     }
 
     public function store(CreateArticle $request)
     {
-    	$article = Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
+        $article = Article::create($request->input() + ['page_img' => $this->pageImageHandle($request)]);
         $article->categories()->attach($request->input('category'));
-    	return redirect('/backend/article');
+        return redirect('/backend/article');
     }
 
     public function edit(Article $article)
     {
-    	$categories = Category::all();
-    	return view('backend.article.edit', compact('article', 'categories'));
+        $categories = Category::all();
+        return view('backend.article.edit', compact('article', 'categories'));
     }
 
     public function update(Article $article, UpdateArticle $request)
@@ -79,6 +80,15 @@ class ArticleController extends Controller
     public function getJson()
     {
         $articles = Article::orderBy('id', 'desc')->simplePaginate(config('cms.per_page'))->toArray();
-        return response()->json(['data'=>$articles, 'code'=>200, 'message'=>'ok']);
+        return response()->json(['data' => $articles, 'code' => 200, 'message' => 'ok']);
+    }
+
+    public function getOneJson($id)
+    {
+        $article = Article::find($id);
+        if (is_null($article)){
+            return response()->json(['code' => 1404, 'message' => 'not found']);
+        }
+        return response()->json(['data' => $article, 'code' => 200, 'message' => 'ok']);
     }
 }

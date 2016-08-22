@@ -43,6 +43,7 @@ Route::group(['prefix'=>'api', 'middleware'=>'api'], function(){
 
 	Route::get('/slider', 'SliderController@getJson');
 	Route::get('/article', 'ArticleController@getJson');
+	Route::get('/article/{id}', 'ArticleController@getOneJson');
 	Route::get('/category/{category}', 'CategoryController@getArticlesByCategoryJson');
 	Route::get('/category', 'CategoryController@getAllJson');
 	Route::get('/video', 'VideoController@getJson');

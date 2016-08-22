@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
   <body style="background: #d2d6de">
-  <nav class="navbar navbar-default navbar-static-top hidden-xs">
+  <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 

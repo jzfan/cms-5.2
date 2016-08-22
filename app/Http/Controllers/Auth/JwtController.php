@@ -47,7 +47,7 @@ class JwtController extends Controller
 
             // 'email' => 'required|email|max:255|unique:users',
             'phone' => ['required', 'unique:users', 'regex:/^1[34578][0-9]{9}$/'],
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
         ]);
     }
 
@@ -64,8 +64,7 @@ class JwtController extends Controller
 
     public function register(Request $request)
     {
-        $request->input('password_confirmation') = $request->input('password_confirmation') ?? $request->input('confirm');
-        
+   
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
