@@ -11,7 +11,8 @@
         "uxweb/sweet-alert": "~1.1",
         "tymon/jwt-auth": "0.5.*",
         "php-ffmpeg/php-ffmpeg": "~0.5",
-        "toplan/phpsms": "~1.6.0"
+        "toplan/phpsms": "~1.6.0",
+        "intervention/imagecache": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

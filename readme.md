@@ -373,5 +373,12 @@
 }
 ```
 
+###图片访问
+
+> url: http://domain.com/image/{size}/{file-name}
+
+- small  - 120x90 Pixel
+- medium - 240x180 Pixel
+- large  - 480x360 Pixel
  
 
