@@ -7,7 +7,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                <img src="/img/page_img/{{ $article->page_img }}" class='img-responsive center-block'>
+                <img src="/image/large/{{ $article->page_img }}" class='img-responsive center-block'>
                 <h3 class="text-center">{{ $article->title }}</h3>
                 <p>
                     

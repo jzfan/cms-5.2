@@ -1,7 +1,7 @@
 @extends('backend.layout')
 
 @section('content-header')
-	@include('backend.content-header', ['title' => '视频', 'add_link'=>'#'])
+	@include('backend.content-header', ['title' => '视频'])
 @stop
 
 @section('content')

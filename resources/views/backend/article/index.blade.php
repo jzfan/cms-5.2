@@ -40,7 +40,7 @@
 								<td class="sorting_1">{{ $a->id }}</td>
 								<td><a href='/article/{{ $a->id }}' target="_blank"> {{ $a->title }}</a></td>
 								<td>{{ $a->summary }}</td>
-								<td><img src='/img/page_img/{{ $a->page_img }}' width=100></td>
+								<td><img src='/image/small/{{ $a->page_img }}'></td>
 								<td>{{ join(', ', $a->categories->lists('name')->toArray()) }}</td>
 								<td>{{ $a->source }}</td>
 								<td>{{ $a->provider }}</td>

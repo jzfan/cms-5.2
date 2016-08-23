@@ -37,7 +37,7 @@
   </table><!-- /.box-header -->
   <div class="box-body">
     <h3>{{ $slider->title }}</h3>
-    <p><img src="{{ $slider->img }}" class='img-responsive img-rounded'></p>
+    <p><img src="/image/large/{{ $slider->img }}" class='img-responsive img-rounded'></p>
     <p>{{ $slider->link }}</p>
   </div><!-- /.box-body -->
 </div>

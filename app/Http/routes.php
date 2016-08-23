@@ -21,7 +21,7 @@ Route::group(['middleware'=>'web'], function(){
 	Route::get('/video/{video}', 'VideoController@show');
 
 	Route::group(['prefix' => 'backend', 'middleware' => 'admin'], function(){
-		Route::get('/', 'ArticleController@index');
+		Route::get('/', 'BackendController@index');
 		Route::resource('article', 'ArticleController', ['except' => 'show']);
 		Route::resource('user', 'UserController', ['except' => ['show', 'create', 'store']]);
 		Route::resource('admin', 'AdminController', ['except' => ['show', 'create', 'edit', 'update']]);
@@ -29,11 +29,9 @@ Route::group(['middleware'=>'web'], function(){
 		Route::resource('slider', 'SliderController', ['except' => ['show']]);
 		Route::resource('video', 'VideoController', ['except' => ['show', 'create', 'store', 'show', 'edit']]);
 
-		Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
+		// Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
 		Route::post('/upload/avatar', 'UserController@uploadAvatar');
 		
-// Route::get('/test', 'TestController@index');
-// Route::post('/test/upload', 'TestController@upload');
 		Route::post('/upload/video', 'VideoController@upload');
 		Route::get('/help/icon', 'HelperController@showIcons');
 	});

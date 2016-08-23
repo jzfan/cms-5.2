@@ -20,8 +20,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::with('categories')->
-orderBy('id', 'desc')->paginate(10);
+        $articles = Article::with('categories')->orderBy('id', 'desc')->paginate(10);
 
         return view('backend.article.index', compact('articles'));
     }
@@ -47,7 +46,7 @@ orderBy('id', 'desc')->paginate(10);
 
     public function update(Article $article, UpdateArticle $request)
     {
-        $article->update($request->input());
+        $article->update($request->input() + ['page_img' => $this->pageImageHandle($request)]);
         $article->categories()->sync([$request->input('category')]);
         return redirect('/backend/article');
     }
@@ -61,21 +60,21 @@ orderBy('id', 'desc')->paginate(10);
     private function pageImageHandle($request)
     {
         $page_img = $request->file('page_img');
-        $name = $page_img->getClientOriginalName();
+        $name = str_random(10) . '.' . $page_img->getClientOriginalExtension();
         $page_img->move(public_path() . '/img/page_img', $name);
         return $name;
     }
 
-    public function uploadEditorImages(Request $request)
-    {
-        $img = $request->file('image');
-        $name = $img->getClientOriginalName();
-        $imgPath = '/img/upload/';
-        $img = Image::make($img)->resize(config('image.article.width'), null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path(). $imgPath. $name);
-        echo env("APP_URL") . $imgPath . $name;       
-    }
+    // public function uploadEditorImages(Request $request)
+    // {
+    //     $img = $request->file('image');
+    //     $name = $img->getClientOriginalName();
+    //     $imgPath = '/img/upload/';
+    //     $img = Image::make($img)->resize(config('image.article.width'), null, function ($constraint) {
+    //             $constraint->aspectRatio();
+    //         })->save(public_path(). $imgPath. $name);
+    //     echo env("APP_URL") . $imgPath . $name;       
+    // }
 
     public function getJson()
     {
