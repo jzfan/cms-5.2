@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Article::orderBy('id', 'desc')->take(4)->get();
-        $video = Video::orderBy('id', 'desc')->first();
-        return view('home', compact('articles', 'video'));
+        $videos = Video::orderBy('id', 'desc')->take(2)->get();
+        return view('home', compact('articles', 'videos'));
     }
 }

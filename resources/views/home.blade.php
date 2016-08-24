@@ -25,9 +25,9 @@
 </div>
 <div class="container">
   <div class="row">
-  <div class="col-md-12">
     
 @forelse ($articles as $a)
+  <div class="col-md-6">
       <div class="media">
         <div class="media-left">
             <img class="media-object" src="/image/medium/{{ $a->page_img }}">
@@ -37,22 +37,26 @@
           <p>{!! $a->summary !!}</p>
         </div>
       </div>
-      <br>
-      <hr>
+  <br>
+  </div>
       @empty
 @endforelse
-      <div class="media">
-        <div class="media-left">
-          <!-- <a href="#"> -->
-            <!-- <img class="media-object" src="/image/medium/{{ $video->thumb }}"></a> -->
-            <video src='/video/{{ $video->file_name }}' width="480" controls></video>
-        </div>
-        <div class="media-body text-center" style="padding: 5% 0">
-          <h3 class="media-heading">{{ $video->original_name }}</h3>
-          <p class="media-heading">{{ $video->created_at }}</p>
-        </div>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+  @forelse ($videos as $video)
+      <div class="col-md-6">
+            <video  poster="/image/large/{{ $video->thumb }}" width="100%" controls>
+              <source src='/video/{{ $video->file_name }}' type="video/mp4">
+            </video>
+            <br>
+            <br>
+          <h3 class="media-heading">{{ strstr($video->original_name, '.', true) }}<small class="pull-right">{{ $video->created_at }}</small></h3>
       </div>
-      <br>
+   @empty
+@endforelse
     </div>
   </div>
 </div>

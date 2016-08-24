@@ -92,7 +92,7 @@
   		id = $(this).attr('data-id');
   		csrf = $(this).attr('data-csrf');
   		$.post('/backend/article/push/'+ id, {"_token": csrf}, function(msg){
-  			console.log(msg);
+  			swal("推送成功！", "已经推送到手机端！", "success");
   		});
   	});
   </script>

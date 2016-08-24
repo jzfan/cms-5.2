@@ -16,7 +16,32 @@ class JpushJob extends Job implements ShouldQueue
 
     public function __construct($data)
     {
-        $this->data = json_encode($data);
+        $android = [
+                    "alert" => $data->title,
+                    "title" => $data->summary,
+                    "builder_id" => \Auth::user()->id,
+                    "extras" => [
+                        "newsid" => $data->id
+                    ]
+                ];
+        $ios = [
+                    "alert" => $data->title,
+                    "sound" => 'default',
+                    "badge" => "+1",
+                    "extras" => [
+                        "newsid" => $data->id
+                    ]
+                ];
+
+        $this->data = json_encode([
+                "platform" => "all",
+                "audience" => "all",
+                "notification" => [
+                    "android" => $android,
+                    'ios' => $ios,
+                ]
+            ]);
+        dd($this->data);
     }
 
     public function handle()
@@ -24,6 +49,7 @@ class JpushJob extends Job implements ShouldQueue
         $client = new JPush(config('services.jpush.key'), config('services.jpush.secret'));
         return $client->push()
             ->setPlatform('all')
+            ->setOptions($sendno=null, $time_to_live=null, $override_msg_id=null, $apns_production=false, $big_push_duration=null)
             ->addAllAudience()
             ->setNotificationAlert($this->data)
             ->send();
