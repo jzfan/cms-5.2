@@ -95,6 +95,7 @@ class ArticleController extends Controller
 
     public function push(Article $article)
     {
+	unset($article->content);
         $response = $this->dispatch(new JpushJob($article));
         return response()->json($response);
     }
