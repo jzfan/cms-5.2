@@ -31,7 +31,7 @@
 								<th class="sorting">归类</th>
 								<th class="sorting">来源</th>
 								<th class="sorting">提供者</th>
-								<th class="sorting" colspan="2">操作</th>
+								<th class="sorting" colspan="3">操作</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -59,6 +59,13 @@
 										</button>
 									</form>
 									</td>
+									<td>
+
+									<button class="btn btn-link send-link" data-id='{{ $a->id }}' data-csrf='{!! csrf_token() !!}' >
+											<i class="fa fa-send text-success"></i>
+									</button>
+
+									</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -79,4 +86,14 @@
   @include('common.sweetalert.error')
   @include('common.sweetalert.session')
   @include('common.sweetalert.confirmDelete')
+  <script>
+  	$('.send-link').on('click', function(e){
+  		e.preventDefault();
+  		id = $(this).attr('data-id');
+  		csrf = $(this).attr('data-csrf');
+  		$.post('/backend/article/push/'+ id, {"_token": csrf}, function(msg){
+  			console.log(msg);
+  		});
+  	});
+  </script>
 @stop

@@ -10,6 +10,8 @@ use App\Article;
 use App\Category;
 use Image;
 use Alert;
+use App\Jobs\JpushJob;
+
 
 class ArticleController extends Controller
 {
@@ -89,5 +91,11 @@ class ArticleController extends Controller
             return response()->json(['code' => 1404, 'message' => 'not found']);
         }
         return response()->json(['data' => $article, 'code' => 200, 'message' => 'ok']);
+    }
+
+    public function push(Article $article)
+    {
+        $response = $this->dispatch(new JpushJob($article));
+        return response()->json($response);
     }
 }

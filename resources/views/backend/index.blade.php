@@ -8,12 +8,12 @@
 <div class="row">
 	<div class="col-md-4 col-sm-6 col-xs-12">
 		<div class="info-box">
-			<span class="info-box-icon bg-aqua"> <i class="fa fa-envelope-o"></i>
+			<span class="info-box-icon bg-aqua"> <i class="fa fa-file"></i>
 			</span>
 			<div class="info-box-content">
 				<span class="info-box-text">文章</span>
-				<span class="info-box-number">本月：{{ $article['last30Days'] }}</span>
-				<span class="info-box-number">总计：{{ $article['total'] }}</span>
+				<span class="info-box-number">30天内：{{ $article['last30Days'] }}</span>
+				<span class="info-box-number">总计：&nbsp;&nbsp;&nbsp;&nbsp;{{ $article['total'] }}</span>
 			</div>
 			<!-- /.info-box-content -->
 		</div>
@@ -25,8 +25,8 @@
 			</span>
 			<div class="info-box-content">
 				<span class="info-box-user">用户</span>
-				<span class="info-box-number">本月：{{ $user['last30Days'] }}</span>
-				<span class="info-box-number">总计：{{ $user['total'] }}</span>
+				<span class="info-box-number">30天内：{{ $user['last30Days'] }}</span>
+				<span class="info-box-number">总计：&nbsp;&nbsp;&nbsp;&nbsp;{{ $user['total'] }}</span>
 			</div>
 			<!-- /.info-box-content -->
 		</div>
@@ -39,8 +39,8 @@
 			</span>
 			<div class="info-box-content">
 				<span class="info-box-film">视频</span>
-				<span class="info-box-number">本月：{{ $video['last30Days'] }}</span>
-				<span class="info-box-number">总计：{{ $video['total'] }}</span>
+				<span class="info-box-number">30天内：{{ $video['last30Days'] }}</span>
+				<span class="info-box-number">总计：&nbsp;&nbsp;&nbsp;&nbsp;{{ $video['total'] }}</span>
 			</div>
 			<!-- /.info-box-content -->
 		</div>

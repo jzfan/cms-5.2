@@ -12,7 +12,8 @@
         "tymon/jwt-auth": "0.5.*",
         "php-ffmpeg/php-ffmpeg": "~0.5",
         "toplan/phpsms": "~1.6.0",
-        "intervention/imagecache": "^2.3"
+        "intervention/imagecache": "^2.3",
+"jpush/jpush": "v3.5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

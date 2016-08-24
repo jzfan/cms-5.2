@@ -34,6 +34,7 @@ Route::group(['middleware'=>'web'], function(){
 		
 		Route::post('/upload/video', 'VideoController@upload');
 		Route::get('/help/icon', 'HelperController@showIcons');
+		Route::post('/article/push/{article}', 'ArticleController@push');
 	});
 });
 

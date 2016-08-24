@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Article;
+use App\Video;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('id', 'desc')->paginate(config('cms.per_page'));
-        return view('home', compact('articles'));
+        $articles = Article::orderBy('id', 'desc')->take(4)->get();
+        $video = Video::orderBy('id', 'desc')->first();
+        return view('home', compact('articles', 'video'));
     }
 }

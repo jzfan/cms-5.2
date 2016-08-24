@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'jpush' => [
+        'key' => env('JPUSH_KEY'),
+        'secret' => env('JPUSH_SECRET')
+    ]
+
 ];

@@ -20,8 +20,28 @@
         <script src="/js/html5shiv.min.js"></script>
         <script src="/js/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+    </style>
   </head>
-  <body style="background: #d2d6de">
+  <body style="background: #d2d6de;">
   <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -70,7 +90,11 @@
         </div>
     </nav>
     @yield('content')
-
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
     <!-- jQuery 2.1.4 -->
     <script src="/js/jquery-2.2.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
