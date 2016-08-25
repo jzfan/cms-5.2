@@ -35,6 +35,7 @@ return array(
         public_path('img/slider'),
         public_path('img/report'),
         public_path('video'),
+        public_path('uploads'),
     ),
 
     /*

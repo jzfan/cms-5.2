@@ -94,7 +94,7 @@
 					$('.modal-body').append('<img src="/image/large/' + m.images[i].name + '" ><br><br>');					
 				}
 			}
-			$('.modal-body').append('<br><p">'+ m.name +'&nbsp;&nbsp;&nbsp;&nbsp;'+ m.qq_or_phone +'</p>');
+			$('.modal-body').append('<br><p">'+ m.name +'&nbsp;&nbsp;&nbsp;&nbsp;'+ m.phone +'</p>');
 		});
 	});
 </script>

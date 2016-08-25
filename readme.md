@@ -395,7 +395,7 @@
 
 | 参数 | 说明 |
 |:---:|:---:|
-| qq_or_phone | qq或手机号 |
+| phone | 手机号 |
 | name | 昵称 |
 | title | 标题 |
 | content | 内容 |
