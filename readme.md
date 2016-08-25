@@ -72,6 +72,7 @@
 | 1404 | not found | 请求的资源 未找到 |
 | 2400 | verify_expired | 验证码 过期 |
 | 2401 | verify_error | 验证码 错误 |
+| 3400 | validate_error | 投诉字段验证 错误 |
 
 ### 首页
 
@@ -380,5 +381,26 @@
 - small  - 120x90 Pixel
 - medium - 240x180 Pixel
 - large  - 480x360 Pixel
+
+
+###投诉
+
+-发送投诉
+
+> 请求地址： /api/report
+
+> 请求方法: post
+
+> 请求参数
+
+| 参数 | 说明 |
+|:---:|:---:|
+| qq_or_phone | qq或手机号 |
+| name | 昵称 |
+| title | 标题 |
+| content | 内容 |
+| file | 图片上传 |
+
+> 返回：发送结果
  
 

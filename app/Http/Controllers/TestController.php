@@ -48,4 +48,9 @@ class TestController extends Controller
                 ->send();
     dd($res);
     }
+
+    public function ts()
+    {
+        return view('test');
+    }
 }

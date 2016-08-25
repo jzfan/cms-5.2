@@ -1,23 +1,26 @@
 
-@extends('backend.layout')
+@extends('layouts.app')
 
 @section('content')
-    <h2>Gallery Show</h2>
+    <h2>report </h2>
 
+ <form action="/api/report" method="post" enctype="multipart/form-data">
+     <label for="file">Filename:</label>
+     <input type="file" name="file" id="file" /> 
+     <br>
+     name:
+     <input type="text" name="name" id="input-name" /> 
+     <br>
+     qq:
+     <input type="text" name="qq_or_phone"  /> 
+     <br>
+     title:
+     <input type="text" name="title"   /> 
+     <br>
+     content:
+     <input type="text" name="content"   /> 
+     <br />
+     <input type="submit" name="submit"/>
+ </form>
 
-    <form class='dropzone' action='/backend/test/upload' method="POST" id='addImages'>
-        {{ csrf_field() }}
-    </form>
-    <a href='/gallery' class='btn btn-primary'>BACK</a>
-@stop
-
-@section('js')
-    <script type="text/javascript">
-    Dropzone.options.addImages = {
-        maxFilesize : 2,
-        acceptedFiles: 'image/*',
-        success: function(response){
-        	console.log(response);
-    };
-    </script>
 @stop

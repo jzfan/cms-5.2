@@ -54,3 +54,13 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
         'description' => $faker->sentence,
     ];
 });
+
+$factory->define(App\Report::class, function (Faker\Generator $faker) {
+    return [
+        'qq_or_phone' => $faker->randomNumber,
+        'name' => $faker->word,
+        'title' => join(' ', $faker->words),
+        'content' => $faker->text,
+        'image' => $faker->image($dir = public_path('img/report'), $width = 320, $height = 240)
+    ];
+});
