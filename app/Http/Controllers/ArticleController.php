@@ -63,7 +63,7 @@ class ArticleController extends Controller
     {
         $page_img = $request->file('page_img');
         $name = str_random(10) . '.' . $page_img->getClientOriginalExtension();
-        $page_img->move(public_path() . '/img/page_img', $name);
+        $page_img->move(public_path('uploads'), $name);
         return $name;
     }
 

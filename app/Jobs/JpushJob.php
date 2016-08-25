@@ -28,7 +28,7 @@ class JpushJob extends Job implements ShouldQueue
             ->addAllAudience()
             // ->setNotificationAlert($this->data->title)
             ->addIosNotification($alert=$this->data->title, $sound='default', $badge="+1", $content_available=null, $category=null, $extras=['id' => $this->data->id])
-            ->addAndroidNotification($alert=$this->data->title, $title=$this->data->content, $builderId=null, $extras=['id' => $this->data->id])
+            ->addAndroidNotification($alert=$this->data->title, $title=$this->data->summary, $builderId=null, $extras=['id' => $this->data->id])
             ->send();
     }
 }

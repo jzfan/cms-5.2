@@ -28,7 +28,7 @@
 								<th class="sorting">标题</th>
 								<th class="sorting">内容</th>
 								<th class="sorting">图片</th>
-								<th class="sorting">QQ | 电话</th>
+								<th class="sorting">电话</th>
 								<th class="sorting">投诉人</th>
 								<th class="sorting">查看</th>
 							</tr>
@@ -39,8 +39,12 @@
 								<td class="sorting_1">{{ $report->id }}</td>
 								<td>{{ $report->title }}</td>
 								<td>{{ str_limit($report->content, 66) }}</td>
-								<td><img src='/image/small/{{ $report->image }}'></td>
-								<td>{{ $report->qq_or_phone }}</td>
+								<td>
+									@if ($report->images->count())
+										<img src='/image/small/{{ $report->images()->first()->name }}'>
+									@endif
+								</td>
+								<td>{{ $report->phone }}</td>
 								<td>{{ $report->name }}</td>
 								<td>
 									<button class="btn btn-link view-link" data-id='{{ $report->id }}' data-toggle="modal" data-target="#myModal">
@@ -54,9 +58,6 @@
 					</table>
 					{!! $reports->links() !!}
 				</div>
-
-
-
 		</div>
 	</div>
 	<!-- /.box-body -->
@@ -88,10 +89,12 @@
 		$.get('/backend/report/' + id, {}, function(m){
 			$('.modal-title').html(m.title + '<small class="pull-right">' + m.created_at + '</small>');
 			$('.modal-body').html(m.content + '<br><br>');
-			if (m.image != ''){
-				$('.modal-body').append('<img src="/image/large/' + m.image + '" ><br>');
+			if (m.images != ''){
+				for (var i in m.images){
+					$('.modal-body').append('<img src="/image/large/' + m.images[i].name + '" ><br><br>');					
+				}
 			}
-			$('.modal-body').append('<br><br><p">'+ m.name +'&nbsp;&nbsp;&nbsp;&nbsp;'+ m.qq_or_phone +'</p>');
+			$('.modal-body').append('<br><p">'+ m.name +'&nbsp;&nbsp;&nbsp;&nbsp;'+ m.qq_or_phone +'</p>');
 		});
 	});
 </script>

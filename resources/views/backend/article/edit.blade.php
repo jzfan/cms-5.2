@@ -29,7 +29,7 @@
                     <div class="form-group">
                       <label for="page_img">页头图片</label>
                       <input type="file" id="page_img" name='page_img'>
-                      <p class="help-block">{{ $article->page_img }}</p>
+                      <img src="/image/medium/{{ $article->page_img }}">
                     </div>
                   
                     <div class="form-group">

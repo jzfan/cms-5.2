@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Report;
+use App\ReportImage;
 
-class ReportsSeeder extends Seeder
+class ReportImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,8 +12,8 @@ class ReportsSeeder extends Seeder
      */
     public function run()
     {
-    	Report::truncate();
+    	ReportImage::truncate();
     	
-        factory(Report::class, 3)->create();
+        factory(ReportImage::class, 5)->create();
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use FFMpeg\FFMpeg;
 use FFMpeg\Format\Video\X264;
 use App\Video;
+use Validator;
 
 class Upload
 {
@@ -18,14 +19,13 @@ class Upload
 
 	public function __construct(Request $request, $fileName='file')
 	{
-		if ($request->hasFile($fileName) && $request->file($fileName)->isValid()) {
-			$this->file = $request->file($fileName);
-		}		
+
+			$this->file = $request->file($fileName);	
 	}
 
-	public function saveVideo($path='video')
+	public function saveVideo($save_path = 'uploads')
 	{
-		$destinationPath = public_path().'/'.$path;
+		$destinationPath = public_path().'/'.$save_path;
 		$file_name = md5(time() . rand(0, 1000) ). '.' . $this->file->getClientOriginalExtension();
     	if ($this->file->move($destinationPath, $file_name)){
     		return $destinationPath.'/'.$file_name;
@@ -33,17 +33,22 @@ class Upload
     	return false;
 	}
 
-	// private function video2Mp4($path)
-	// {
- // 		$ffmpeg = FFMpeg::create([
-	// 	    'ffmpeg.binaries'  => '/usr/bin/ffmpeg',
-	// 	    'ffprobe.binaries' => '/usr/bin/ffprobe' 
-	// 	]);
-	// 	$video = $ffmpeg->open($this->file);
-	// 	$newName = str_random(12).'.mp4';
-	// 	$destinationPath = public_path().'/'.$path.'/'.$newName;
-	// 	$video->save(new X264('libmp3lame', 'libx264'), $destinationPath);
-	// 	return $newName;			
-	// }
+	public function multiple_upload($save_path = 'uploads')
+	{
+	    // getting all of the post data
+	    $file_name_arr = [];
+	    foreach($this->file as $file) {
+	      $rules = ['file' => 'required|mimes:png,gif,jpeg']; //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+	      $validator = Validator::make(['file'=> $file], $rules);
+	      if($validator->fails()){
+	      	return false;
+	      }
+	        $destinationPath = $save_path;
+	        $filename = $file->getClientOriginalName();
+	        $file->move($destinationPath, $filename);
+	        $file_name_arr[] = $filename;
+	    }
+	    return $file_name_arr;
+  	}
 
 }

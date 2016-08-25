@@ -11,7 +11,7 @@
 <div class="col-xs-6 col-md-4">
   
 <div class="box box-solid">
-<h3>{{ $slider->category->name }}</h3>
+<h3>{{ $slider->category->name or ''}}</h3>
   <table class="box-header with-border">
   <tr>
     <td width="80%">

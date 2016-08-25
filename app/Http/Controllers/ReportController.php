@@ -6,22 +6,25 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Report;
+use App\ReportImage;
+use App\Helper\Upload;
 // use App\Http\Requests\Request\CreateReport;
 
 class ReportController extends Controller
 {
     public function index()
     {
-        $reports = Report::orderBy('id', 'desc')->paginate(10);
+        $reports = Report::with('images')->orderBy('id', 'desc')->paginate(10);
         return view('backend.report.index', compact('reports'));
     }
 
-    public function show(Report $report)
+    public function show($id)
     {
+        $report = Report::with('images')->find($id);
         return response()->json($report);
     }
 
-    public function receive(Request $request)
+    public function receive(Request $request, Upload $upload)
     {
 		$validator = $this->validator($request);
 		if ($validator->fails()) {
@@ -29,16 +32,23 @@ class ReportController extends Controller
 		}
 
 		$input = $request->input();
+    	$report = Report::create($input);
 
-    	if ($request->hasFile('file'))
-    	{
+        if ($request->hasFile('file'))
+        {
+            $files = $upload->multiple_upload();
 
-    		$file_name = $this->upload_file($request);
-    		$input += ['image' => $file_name];
+            foreach ($files as  $file) {
+                ReportImage::create([
+                    'name' => $file,
+                    'report_id' => $report->id
+                ]);
+            }
 
-    	}
+            // $file_name = $this->upload_file($request);
+            // $input += ['image' => $file_name];
+        }
 
-    	Report::create($input);
     	return response()->json(['code' => 200, 'message' => 'ok']);
 
     }
@@ -46,7 +56,7 @@ class ReportController extends Controller
     private function validator($request)
     {
     	$validator = \Validator::make($request->all(), [
-		    'qq_or_phone' => 'required|numeric',
+		    'phone' => 'required|numeric',
             'name' => 'required|max:255',
 		    'title' => 'required|unique:reports|max:255',
             'content' => 'required',
@@ -59,7 +69,7 @@ class ReportController extends Controller
     	$file = $request->file('file');
     	$file_name = $file->getClientOriginalName();
     	if ($file->isValid()){
-    		$file->move(public_path('img/report', $file_name));
+    		$file->move(public_path('uploads', $file_name));
     	}
     	return $file_name;
     }

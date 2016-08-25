@@ -73,7 +73,7 @@ class SliderController extends Controller
     {
         $img = $request->file('file');
         $name = str_random(10) . '.' . $img->getClientOriginalExtension();
-        $img->move(public_path('img/slider/'), $name);
+        $img->move(public_path('uploads'), $name);
         // $img = Image::make($img)->resize(config('image.slider.width'), config('image.slider.height'))->save(public_path(). $imgPath. $name);
         return $name;
     }

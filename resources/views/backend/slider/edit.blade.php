@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                       <label>原图片</label>
-                      <img src='{{ $slider->img }}'>
+                      <img src='/image/medium/{{ $slider->img }}'>
                     </div>
                     <div class="form-group">
                       <label for="img">更新图片</label>
