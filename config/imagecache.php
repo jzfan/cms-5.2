@@ -33,6 +33,7 @@ return array(
     'paths' => array(
         public_path('img/page_img'),
         public_path('img/slider'),
+        public_path('img/report'),
         public_path('video'),
     ),
 

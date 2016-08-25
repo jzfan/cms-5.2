@@ -61,6 +61,6 @@ $factory->define(App\Report::class, function (Faker\Generator $faker) {
         'name' => $faker->word,
         'title' => join(' ', $faker->words),
         'content' => $faker->text,
-        'image' => $faker->image($dir = public_path('img/report'), $width = 320, $height = 240)
+        'image' => pathinfo($faker->image($dir = public_path('img/report'), $width = 320, $height = 240))['basename']
     ];
 });

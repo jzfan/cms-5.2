@@ -28,6 +28,8 @@ Route::group(['middleware'=>'web'], function(){
 		Route::resource('category', 'CategoryController', ['except' => ['show', 'create', 'edit']]);
 		Route::resource('slider', 'SliderController', ['except' => ['show']]);
 		Route::resource('video', 'VideoController', ['except' => ['show', 'create', 'store', 'show', 'edit']]);
+		Route::get('report', 'ReportController@index');
+		Route::get('report/{report}', 'ReportController@show');
 
 		// Route::post('/article/uploadImage', 'ArticleController@uploadEditorImages');
 		Route::post('/upload/avatar', 'UserController@uploadAvatar');

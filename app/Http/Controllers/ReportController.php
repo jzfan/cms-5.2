@@ -10,6 +10,17 @@ use App\Report;
 
 class ReportController extends Controller
 {
+    public function index()
+    {
+        $reports = Report::orderBy('id', 'desc')->paginate(10);
+        return view('backend.report.index', compact('reports'));
+    }
+
+    public function show(Report $report)
+    {
+        return response()->json($report);
+    }
+
     public function receive(Request $request)
     {
 		$validator = $this->validator($request);

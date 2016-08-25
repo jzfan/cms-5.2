@@ -136,6 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li @if(Request::is('backend/slider*')) class="active" @endif><a href="/backend/slider"><i class="fa fa-image"></i> <span>焦点图</span></a></li>
         <li @if(Request::is('backend/admin*')) class="active" @endif><a href="/backend/admin"><i class="fa fa-user-secret"></i> <span>管理员</span></a></li>
         <li @if(Request::is('backend/video*')) class="active" @endif><a href="/backend/video"><i class="fa fa-film"></i> <span>视频</span></a></li>
+        <li @if(Request::is('backend/report*')) class="active" @endif><a href="/backend/report"><i class="fa fa-bullhorn"></i> <span>投诉</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-question"></i> <span>帮助</span>
             <span class="pull-right-container">
