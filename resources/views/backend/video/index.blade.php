@@ -35,7 +35,9 @@
   </table><!-- /.box-header -->
   <div class="box-body">
     <h3>{{ $video->original_name }}</h3>
-    <p><img src="/video/{{ $video->thumb }}" class='img-responsive img-rounded'></p>
+    <br>
+    <img src="/image/medium/{{ $video->thumb }}" class='img-responsive img-rounded center-block'>
+    <br>
   </div><!-- /.box-body -->
 </div>
 </div>
@@ -56,13 +58,13 @@
 @include('common.sweetalert.confirmDelete')
 <script type="text/javascript">
 Dropzone.options.addVideo = {
-        acceptFields : 'videos/mp4',
+        acceptedFiles: "video/mp4, video/mkv",
         dictDefaultMessage : '上传视频',
         sending: function(file, xhr, formData){
             formData.append('_token', "{!! csrf_token() !!}");
         },
         success: function(file, response){
-          $('.dz-image img').attr('src', '/video/'+response+'.jpg').css('width', '100%').css('height', '100%');
+          $('.dz-image img').attr('src', '/image/small/'+response+'.jpg').css('width', '100%').css('height', '100%');
         }
     };
 </script>

@@ -45,7 +45,7 @@ class SliderController extends Controller
 
     public function update(Slider $slider, UpdateSlider $request)
     {
-        if ($request->hasFile('img')){
+        if ($request->hasFile('file')){
             $img = $this->uploadImageHandle($request);
             $slider->update( $request->input() + ['img'=>$img] );
         }else{
@@ -72,7 +72,7 @@ class SliderController extends Controller
     private function uploadImageHandle($request)
     {
         $img = $request->file('file');
-        $name = str_random(10) . '.' . $img->getClientOriginalExtension();
+        $name = str_random(12) . '.' . $img->getClientOriginalExtension();
         $img->move(public_path('uploads'), $name);
         // $img = Image::make($img)->resize(config('image.slider.width'), config('image.slider.height'))->save(public_path(). $imgPath. $name);
         return $name;

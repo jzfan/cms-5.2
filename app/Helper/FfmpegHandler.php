@@ -37,7 +37,7 @@ class FfmpegHandler
 	public  function thumb()
 	{
 		$name = pathinfo($this->file)['filename'];
-		$file_path = public_path().'/video/'.$name.'.jpg';
+		$file_path = public_path('uploads/'). $name.'.jpg';
 		$this->video->frame(TimeCode::fromSeconds(10))
     				->save($file_path);
     	\Image::make($file_path)->resize(480, 270)->save();			
