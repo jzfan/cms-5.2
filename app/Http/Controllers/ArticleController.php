@@ -48,7 +48,12 @@ class ArticleController extends Controller
 
     public function update(Article $article, UpdateArticle $request)
     {
-        $article->update($request->input() + ['page_img' => $this->pageImageHandle($request)]);
+        $input = $request->input();
+        if ($request->hasFile('page_img')){
+            $input += ['page_img' => $this->pageImageHandle($request)];
+        }
+        $article->update($input);
+
         $article->categories()->sync([$request->input('category')]);
         return redirect('/backend/article');
     }
@@ -66,17 +71,6 @@ class ArticleController extends Controller
         $page_img->move(public_path('uploads'), $name);
         return $name;
     }
-
-    // public function uploadEditorImages(Request $request)
-    // {
-    //     $img = $request->file('image');
-    //     $name = $img->getClientOriginalName();
-    //     $imgPath = '/img/upload/';
-    //     $img = Image::make($img)->resize(config('image.article.width'), null, function ($constraint) {
-    //             $constraint->aspectRatio();
-    //         })->save(public_path(). $imgPath. $name);
-    //     echo env("APP_URL") . $imgPath . $name;       
-    // }
 
     public function getJson()
     {

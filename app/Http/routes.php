@@ -59,4 +59,5 @@ Route::group(['prefix'=>'api', 'middleware'=>'throttle:1'], function(){
 	Route::get('/verify/{phone}', 'Auth\\JwtController@getVerify');
 });
 
+Route::get('/base', 'TestController@base');
 Route::get('/ts', 'TestController@ts');

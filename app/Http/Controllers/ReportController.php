@@ -24,29 +24,33 @@ class ReportController extends Controller
         return response()->json($report);
     }
 
-    public function receive(Request $request, Upload $upload)
+    public function receive(Request $request)
     {
 		$validator = $this->validator($request);
 		if ($validator->fails()) {
 			return response()->json(['code' => '3400', 'message' => $validator->errors()->first()]);
 		}
 
-		$input = $request->input();
-    	$report = Report::create($input);
+		$input = $request->except('file');
 
-        if ($request->hasFile('file'))
+        if ($request->has('file')){
+
+            $files = Upload::multiple_upload_base64($request);
+
+        }
+        elseif ($request->hasFile('file'))
         {
-            $files = $upload->multiple_upload();
+            $files = Upload::multiple_upload($request);
 
-            foreach ($files as  $file) {
-                ReportImage::create([
-                    'name' => $file,
-                    'report_id' => $report->id
-                ]);
-            }
+        }
 
-            // $file_name = $this->upload_file($request);
-            // $input += ['image' => $file_name];
+        $report = Report::create($input);
+
+        foreach ($files as  $file) {
+            ReportImage::create([
+                'name' => $file,
+                'report_id' => $report->id
+            ]);
         }
 
     	return response()->json(['code' => 200, 'message' => 'ok']);
