@@ -33,24 +33,18 @@ class ReportController extends Controller
 
 		$input = $request->except('file');
 
+        $report = Report::create($input);
+
         if ($request->has('file')){
 
             $files = Upload::multiple_upload_base64($request);
+            $this->saveImageRecord($files);
 
         }
         elseif ($request->hasFile('file'))
         {
             $files = Upload::multiple_upload($request);
-
-        }
-
-        $report = Report::create($input);
-
-        foreach ($files as  $file) {
-            ReportImage::create([
-                'name' => $file,
-                'report_id' => $report->id
-            ]);
+            $this->saveImageRecord($files);
         }
 
     	return response()->json(['code' => 200, 'message' => 'ok']);
@@ -76,5 +70,15 @@ class ReportController extends Controller
     		$file->move(public_path('uploads', $file_name));
     	}
     	return $file_name;
+    }
+
+    private function saveImageRecord($files)
+    {
+        foreach ($files as  $file) {
+            ReportImage::create([
+                'name' => $file,
+                'report_id' => $report->id
+            ]);
+        }
     }
 }
