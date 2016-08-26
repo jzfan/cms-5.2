@@ -11,7 +11,7 @@
 <div class="col-xs-6 col-md-4">
   
 <div class="box box-solid">
-<h3>{{ $slider->category->name or ''}}</h3>
+<h3>{{ $slider->category->name or '无分类'}}</h3>
   <table class="box-header with-border">
   <tr>
     <td width="80%">
@@ -36,9 +36,9 @@
   </tr>
   </table><!-- /.box-header -->
   <div class="box-body">
-    <h3>{{ $slider->title }}</h3>
+    <h3>{{ str_limit($slider->title, 36) }}</h3>
     <p><img src="/image/large/{{ $slider->img }}" class='img-responsive img-rounded'></p>
-    <p>{{ $slider->link }}</p>
+    <p>链接：{{ $slider->link or '无'}}</p>
   </div><!-- /.box-body -->
 </div>
 </div>

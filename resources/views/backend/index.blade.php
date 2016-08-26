@@ -52,12 +52,17 @@
 				<h3 class="box-title">最近文章</h3>
 				<!-- /.box-tools -->
 			</div>
+			<div class="box-body">
 			@forelse ($article['list'] as $a)
-				<div class="box-body">{{ $a->title }}</div>
+			<h4>
+				{{ $a->title }}
+				<small class="pull-right">{{ $a->created_at }}</small>
+			</h4>
+			<hr>
 				@empty
-				
-				<div class="box-body">无</div>
+				无
 			@endforelse
+		</div>
 		</div>
 		<!-- /.box -->
 	</div>
@@ -67,12 +72,17 @@
 				<h3 class="box-title">最近用户</h3>
 				<!-- /.box-tools -->
 			</div>
+			<div class="box-body">
 			@forelse ($user['list'] as $u)
-				<div class="box-body">{{ $u->name }}</div>
+			<h4>
+					{{ $u->name }}
+				<small class="pull-right">{{ $u->created_at }}</small>
+			</h4>
+			<hr>
 				@empty
-				
-				<div class="box-body">无</div>
+				无
 			@endforelse
+			</div>
 
 		</div>
 		<!-- /.box -->
@@ -83,21 +93,26 @@
 				<h3 class="box-title">最近视频</h3>
 				<!-- /.box-tools -->
 			</div>
+			<div class="box-body">
 			@forelse ($video['list'] as $v)
-				<div class="box-body">
 					<div class="col-sm-6">
-						{{ $v->original_name }}
+						<h4>
+							{{ $v->original_name }}
+						</h4>
+						<p>
+							{{ $v->created_at }}
+						</p>
 						
 					</div>
 					<div class="col-sm-6">
 					<img src='/image/small/{{ $v->thumb }}'>
 					</div>
-					</div>
+					<hr class="col-md-12">
 				@empty
 				
-				<div class="box-body">无</div>
+ 					无
 			@endforelse
-
+</div>
 		</div>
 		<!-- /.box -->
 	</div>

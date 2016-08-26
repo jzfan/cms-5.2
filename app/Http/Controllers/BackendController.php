@@ -21,7 +21,7 @@ class BackendController extends Controller
     	return view('backend.index', compact('user', 'video', 'article'));
     }
 
-    protected function getData($model, $take = 8)
+    protected function getData($model, $take = 10)
     {
     	$total = $model->all()->count();
     	$last30Days = $model::where('created_at', '>', Carbon::now()->subDays(30))->count();

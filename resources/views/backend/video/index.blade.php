@@ -34,7 +34,7 @@
   </tr>
   </table><!-- /.box-header -->
   <div class="box-body">
-    <h3>{{ $video->original_name }}</h3>
+    <h3>{{ str_limit($video->original_name, 36) }}</h3>
     <br>
     <img src="/image/medium/{{ $video->thumb }}" class='img-responsive img-rounded center-block'>
     <br>

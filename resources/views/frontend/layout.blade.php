@@ -92,7 +92,7 @@ body {
     @yield('content')
 <footer class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Copyright © 2016 Company. All rights reserved.</p>
       </div>
     </footer>
     <!-- jQuery 2.1.4 -->
