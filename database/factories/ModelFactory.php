@@ -30,7 +30,7 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
         'summary' => $faker->sentence,
         'content' => $faker->text,
         'source' => $faker->safeEmailDomain,
-        'page_img' => pathinfo($faker->image($dir = public_path('img/page_img'), $width = 240, $height = 135))['basename'],
+        'page_img' => pathinfo($faker->image($dir = public_path('uploads'), $width = 240, $height = 135))['basename'],
         'provider' => $faker->name,
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now()
@@ -40,7 +40,7 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
 $factory->define(App\Slider::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
-        'img' => pathinfo($faker->image($dir = public_path('img/slider'), $width = 160, $height = 120))['basename'],
+        'img' => pathinfo($faker->image($dir = public_path('uploads'), $width = 160, $height = 120))['basename'],
         'link' => '/article/'. mt_rand(1, 5),
         'category_id' => mt_rand(1, 5),
     ];
@@ -67,6 +67,6 @@ $factory->define(App\Report::class, function (Faker\Generator $faker) {
 $factory->define(App\ReportImage::class, function (Faker\Generator $faker) {
     return [
         'report_id' => mt_rand(1, 5),
-        'name' => pathinfo($faker->image($dir = public_path('img/report'), $width = 160, $height = 120))['basename']
+        'name' => pathinfo($faker->image($dir = public_path('uploads'), $width = 160, $height = 120))['basename']
     ];
 });

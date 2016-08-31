@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Helper\Upload;
-use App\Helper\FfmpegHandler;
+use Cms\Helper\Upload;
+use Cms\Helper\FfmpegHandler;
 use App\Http\Requests;
-use App\Video;
+use Cms\Video;
 
 class VideoController extends Controller
 {
@@ -27,9 +27,9 @@ class VideoController extends Controller
         return redirect()->back();
     }
 
-    public function upload(Upload $upload, Request $request)
+    public function upload(Request $request)
     {
-        $file_name = $upload->saveVideo();
+        $file_name = Upload::saveVideo($request);
         $ffmHandler = new FfmpegHandler($file_name);
         Video::create([
             'user_id' => \Auth::user()->id,

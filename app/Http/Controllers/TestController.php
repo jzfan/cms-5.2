@@ -34,7 +34,7 @@ class TestController extends Controller
     public function ff()
     {
         $file = public_path().'/'.'a.wmv';
-        $ffm = new \App\Helper\FfmpegHandler($file);
+        $ffm = new \Cms\Helper\FfmpegHandler($file);
         echo $ffm->thumb();
     }
 

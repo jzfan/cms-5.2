@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateSlider;
 use App\Http\Requests\UpdateSlider;
-use App\Category;
-use App\Slider;
+use Cms\Category;
+use Cms\Slider;
 use Image;
 use Cache;
 

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateAdmin;
-use App\Admin;
-use App\User;
+use Cms\Admin;
+use Cms\User;
 
 class AdminController extends Controller
 {

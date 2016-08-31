@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
     private function modelEvents()
     {
         $models = [
-            \App\Article::class,
-            \App\User::class,
-            \App\Slider::class,
-            \App\Video::class,
-            \App\Category::class,
-            \App\Admin::class,
+            \Cms\Article::class,
+            \Cms\User::class,
+            \Cms\Slider::class,
+            \Cms\Video::class,
+            \Cms\Category::class,
+            \Cms\Admin::class,
         ];
 
         foreach ($models as $m) {

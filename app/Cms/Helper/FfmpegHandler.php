@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Helper;
+namespace Cms\Helper;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use FFMpeg\FFMpeg;
 use FFMpeg\FFProbe;
 use FFMpeg\Format\Video\X264;
-use App\Video;
+use Cms\Video;
 use FFMpeg\Coordinate\TimeCode;
 
 class FfmpegHandler

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Report;
-use App\ReportImage;
-use App\Helper\Upload;
+use Cms\Report;
+use Cms\ReportImage;
+use Cms\Helper\Upload;
 // use App\Http\Requests\Request\CreateReport;
 
 class ReportController extends Controller

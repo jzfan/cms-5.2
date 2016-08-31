@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateArticle;
 use App\Http\Requests\UpdateArticle;
-use App\Article;
-use App\Category;
+use Cms\Article;
+use Cms\Category;
 use Image;
 use Alert;
 use App\Jobs\JpushJob;

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Carbon\Carbon;
-use App\User;
-use App\Article;
-use App\Video;
+use Cms\User;
+use Cms\Article;
+use Cms\Video;
 
 class BackendController extends Controller
 {

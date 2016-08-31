@@ -61,3 +61,8 @@ Route::group(['prefix'=>'api', 'middleware'=>'throttle:1'], function(){
 
 Route::get('/base', 'TestController@base');
 Route::get('/ts', 'TestController@ts');
+
+Route::get('up', function() {
+	\Cms\Helper\Upload::saveVideo();
+	return 222;
+});

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Helper;
+namespace Cms\Helper;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use FFMpeg\FFMpeg;
 use FFMpeg\Format\Video\X264;
-use App\Video;
+use Cms\Video;
 use Validator;
 use Image;
 
@@ -18,28 +18,23 @@ class Upload
 
 	protected $ffmpeg;
 
-	public function __construct(Request $request, $fileName='file')
+	public static function saveVideo($request, $save_path = 'video')
 	{
-
-	}
-
-	public function saveVideo($request, $save_path = 'uploads')
-	{
-		$file = $request->file($fileName);	
+		$file = $request->file('file');
 		$destinationPath = public_path().'/'.$save_path;
 		$file_name = md5(time() . rand(0, 1000) ). '.' . $file->getClientOriginalExtension();
-    	if ($this->file->move($destinationPath, $file_name)){
+    	if ($file->move($destinationPath, $file_name)){
     		return $destinationPath.'/'.$file_name;
     	}
     	return false;
 	}
 
-	public function multiple_upload($request, $save_path = 'uploads')
+	public static function multiple_upload($request, $save_path = 'uploads')
 	{
-		$file = $request->file($fileName);	
+		$file = $request->file('file');	
 	    // getting all of the post data
 	    $file_name_arr = [];
-	    foreach($this->file as $file) {
+	    foreach($file as $file) {
 	      $rules = ['file' => 'required|mimes:png,gif,jpeg']; //'required|mimes:png,gif,jpeg,txt,pdf,doc'
 	      $validator = Validator::make(['file'=> $file], $rules);
 	      if($validator->fails()){

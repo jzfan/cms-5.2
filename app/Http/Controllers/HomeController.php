@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Article;
-use App\Video;
+use Cms\Article;
+use Cms\Video;
 
 class HomeController extends Controller
 {

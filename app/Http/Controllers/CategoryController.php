@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateCategory;
 use App\Http\Requests\UpdateCategory;
-use App\Category;
-use App\Article;
+use Cms\Category;
+use Cms\Article;
 
 class CategoryController extends Controller
 {

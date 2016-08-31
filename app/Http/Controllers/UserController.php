@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\UpdateUser;
-use App\User;
+use Cms\User;
 use App\Jobs\UploadDropzoneImage;
 
 class UserController extends Controller
